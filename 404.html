@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Stackly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="error-page">
+    <!-- Stage Loader -->
+    <div id="stage-loader" class="stage-loader">
+        <div class="loader-content">
+            <img src="https://thestackly.com/assets/imgs/logo-stackly%20(1).png" alt="Stackly Logo" class="loader-logo" width="100">
+            <div class="loader-spinner">
+                <svg viewBox="0 0 100 100" class="spinner-svg">
+                    <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
+                    <circle cx="50" cy="50" r="40" class="spinner-active"></circle>
+                </svg>
+            </div>
+            <p class="loader-text">Checking Page...</p>
+        </div>
+    </div>
+
+    <!-- Error Content -->
+    <div class="error-container">
+        <div class="error-content">
+            <a href="index.html" class="error-logo-link">
+                <img src="https://thestackly.com/assets/imgs/logo-stackly%20(1).png" alt="Stackly" class="error-logo" width="50">
+            </a>
+            
+            <div class="error-illustration">
+                <svg viewBox="0 0 200 200" class="error-svg">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="10 5" opacity="0.3">
+                        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="100" cy="100" r="60" fill="none" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="5 10" opacity="0.2">
+                        <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="15s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="100" y="115" text-anchor="middle" fill="#FF6B6B" font-size="48" font-weight="bold" font-family="system-ui">404</text>
+                    <path d="M70 140 Q100 160 130 140" fill="none" stroke="#8892b0" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="80" cy="75" r="5" fill="#FF6B6B"/>
+                    <circle cx="120" cy="75" r="5" fill="#FF6B6B"/>
+                </svg>
+            </div>
+            
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-desc">Oops! The page you're looking for doesn't exist or has been moved. It might have been deleted, renamed, or the link you followed might be broken or outdated.</p>
+            
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary btn-large">
+                    <span class="btn-icon">←</span> Go Back Home
+                </a>
+                <a href="courses.html" class="btn btn-outline btn-large">Browse Courses</a>
+            </div>
+            
+            <div class="error-search">
+                <p class="error-search-label">Looking for something specific?</p>
+                <form class="error-search-form" onsubmit="event.preventDefault(); window.location.href='404.html';">
+                    <input type="text" class="error-search-input" placeholder="Search courses, topics, or pages...">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            
+            <div class="error-quick-links">
+                <h3 class="quick-links-title">Quick Links</h3>
+                <div class="quick-links-grid">
+                    <a href="index.html" class="quick-link">🏠 Home</a>
+                    <a href="courses.html" class="quick-link">📚 Courses</a>
+                    <a href="about.html" class="quick-link">ℹ️ About</a>
+                    <a href="contact.html" class="quick-link">📧 Contact</a>
+                    <a href="dashboard.html" class="quick-link">📊 Dashboard</a>
+                    <a href="login.html" class="quick-link">🔐 Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Footer -->
+    <footer class="error-footer">
+        <div class="error-footer-content">
+            <p>© 2026 Stackly Learning Platform. All rights reserved.</p>
+            <div class="error-footer-links">
+                <a href="index.html">Home</a>
+                <span>•</span>
+                <a href="contact.html">Contact</a>
+                <span>•</span>
+                <a href="404.html">Help</a>
+                <span>•</span>
+                <a href="404.html">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

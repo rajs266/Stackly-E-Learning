@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Stackly | Explore Our Learning Programs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Stage Loader -->
+    <div id="stage-loader" class="stage-loader">
+        <div class="loader-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly Logo" class="loader-logo" width="100">
+            <div class="loader-spinner">
+                <svg viewBox="0 0 100 100" class="spinner-svg">
+                    <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
+                    <circle cx="50" cy="50" r="40" class="spinner-active"></circle>
+                </svg>
+            </div>
+            <p class="loader-text">Loading Course Catalog...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" class="brand-logo" width="40" height="40">
+                    <span class="brand-name">Stackly</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="about.html" class="nav-link">About Us <span class="dropdown-indicator">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html#mission">Mission</a></li>
+                        <li><a href="about.html#timeline">Timeline</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="courses.html" class="nav-link active">Courses <span class="dropdown-indicator">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#catalog">All Courses</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="hamburger-btn" aria-label="Open Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="mobile-logo-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" width="40">
+                    <span>Stackly</span>
+                </a>
+                <button class="mobile-close-btn" aria-label="Close Menu">✕</button>
+            </div>
+            <div class="mobile-menu-content">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="btn btn-primary mobile-cta">Get Started Now →</a></li>
+                </ul>
+                <div class="mobile-contact-info">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:+919876543210">📞 +91 9876543210</a></p>
+                    <p>📧 support@thestackly.com</p>
+                    <p>📍 Stackly, Salem</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero courses-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">Our Courses</h1>
+                <p class="page-hero-desc">Explore 200+ expert-curated programs designed to accelerate your career in tech and business.</p>
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span class="breadcrumb-current">Courses</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Categories -->
+    <section id="categories" class="categories-section section-reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Browse by Category</span>
+                <h2 class="section-title">Find Your Perfect Course</h2>
+            </div>
+            <div class="categories-grid">
+                <button class="category-card active" data-filter="all">
+                    <span class="category-icon">🌐</span>
+                    <span class="category-name">All Courses</span>
+                    <span class="category-count">200+</span>
+                </button>
+                <button class="category-card" data-filter="development">
+                    <span class="category-icon">💻</span>
+                    <span class="category-name">Development</span>
+                    <span class="category-count">45</span>
+                </button>
+                <button class="category-card" data-filter="data">
+                    <span class="category-icon">📊</span>
+                    <span class="category-name">Data Science</span>
+                    <span class="category-count">32</span>
+                </button>
+                <button class="category-card" data-filter="design">
+                    <span class="category-icon">🎨</span>
+                    <span class="category-name">Design</span>
+                    <span class="category-count">28</span>
+                </button>
+                <button class="category-card" data-filter="security">
+                    <span class="category-icon">🔒</span>
+                    <span class="category-name">Security</span>
+                    <span class="category-count">18</span>
+                </button>
+                <button class="category-card" data-filter="cloud">
+                    <span class="category-icon">☁️</span>
+                    <span class="category-name">Cloud</span>
+                    <span class="category-count">22</span>
+                </button>
+                <button class="category-card" data-filter="marketing">
+                    <span class="category-icon">📈</span>
+                    <span class="category-name">Marketing</span>
+                    <span class="category-count">25</span>
+                </button>
+                <button class="category-card" data-filter="business">
+                    <span class="category-icon">💼</span>
+                    <span class="category-name">Business</span>
+                    <span class="category-count">30</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Catalog -->
+    <section id="catalog" class="catalog-section section-reveal">
+        <div class="container">
+            <div class="catalog-header">
+                <div class="catalog-filters">
+                    <select class="filter-select" id="sort-filter">
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                    <div class="filter-tags">
+                        <span class="filter-tag active">All Levels</span>
+                        <span class="filter-tag">Beginner</span>
+                        <span class="filter-tag">Intermediate</span>
+                        <span class="filter-tag">Advanced</span>
+                    </div>
+                </div>
+                <div class="catalog-search">
+                    <input type="text" class="search-input" placeholder="Search courses..." id="course-search">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </div>
+
+            <div class="courses-grid" id="courses-grid">
+                <!-- Course 1 -->
+                <article class="course-card" data-category="development" data-level="beginner">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Full Stack Development" class="course-thumb" loading="lazy">
+                        <span class="course-badge bestseller">Bestseller</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Development</span>
+                            <span class="course-level-tag beginner">Beginner</span>
+                        </div>
+                        <h3 class="course-title">Full Stack Web Development Bootcamp</h3>
+                        <p class="course-desc">Master HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build 15+ real-world projects and deploy them to production.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Karthik Subramanian</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 12 Weeks</span>
+                            <span class="stat">📚 180 Lessons</span>
+                            <span class="stat">👥 2,847 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-count">(2,847)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹24,999</span>
+                                <span class="price-current">₹12,999</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 2 -->
+                <article class="course-card" data-category="data" data-level="intermediate">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Science" class="course-thumb" loading="lazy">
+                        <span class="course-badge trending">Trending</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Data Science</span>
+                            <span class="course-level-tag intermediate">Intermediate</span>
+                        </div>
+                        <h3 class="course-title">Data Science & Machine Learning Mastery</h3>
+                        <p class="course-desc">Learn Python, Pandas, NumPy, Scikit-Learn, TensorFlow, and deep learning with real-world datasets and Kaggle competitions.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Dr. Priya Sharma</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 16 Weeks</span>
+                            <span class="stat">📚 220 Lessons</span>
+                            <span class="stat">👥 1,923 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.8</span>
+                                <span class="rating-count">(1,923)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹29,999</span>
+                                <span class="price-current">₹14,999</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 3 -->
+                <article class="course-card" data-category="security" data-level="beginner">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" class="course-thumb" loading="lazy">
+                        <span class="course-badge new">New</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Security</span>
+                            <span class="course-level-tag beginner">Beginner</span>
+                        </div>
+                        <h3 class="course-title">Cybersecurity Fundamentals & Ethical Hacking</h3>
+                        <p class="course-desc">Understand network security, penetration testing, cryptography, and threat analysis from certified security professionals.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Arun Venkatesh</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 10 Weeks</span>
+                            <span class="stat">📚 140 Lessons</span>
+                            <span class="stat">👥 876 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-value">4.7</span>
+                                <span class="rating-count">(876)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹19,999</span>
+                                <span class="price-current">₹9,999</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 4 -->
+                <article class="course-card" data-category="design" data-level="beginner">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="UI/UX Design" class="course-thumb" loading="lazy">
+                        <span class="course-badge popular">Popular</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Design</span>
+                            <span class="course-level-tag beginner">Beginner</span>
+                        </div>
+                        <h3 class="course-title">UI/UX Design Masterclass with Figma</h3>
+                        <p class="course-desc">Learn user research, wireframing, prototyping, and design systems. Build a portfolio that lands you a design job.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Meera Iyer</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 8 Weeks</span>
+                            <span class="stat">📚 120 Lessons</span>
+                            <span class="stat">👥 3,102 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-count">(3,102)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹16,999</span>
+                                <span class="price-current">₹8,499</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 5 -->
+                <article class="course-card" data-category="cloud" data-level="intermediate">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Computing" class="course-thumb" loading="lazy">
+                        <span class="course-badge">Certified</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Cloud</span>
+                            <span class="course-level-tag intermediate">Intermediate</span>
+                        </div>
+                        <h3 class="course-title">AWS Solutions Architect Certification</h3>
+                        <p class="course-desc">Prepare for the AWS SAA-C03 exam with hands-on labs, practice tests, and real-world architecture scenarios.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Vikram Patel</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 14 Weeks</span>
+                            <span class="stat">📚 200 Lessons</span>
+                            <span class="stat">👥 1,456 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.8</span>
+                                <span class="rating-count">(1,456)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹22,999</span>
+                                <span class="price-current">₹11,499</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 6 -->
+                <article class="course-card" data-category="marketing" data-level="beginner">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Marketing" class="course-thumb" loading="lazy">
+                        <span class="course-badge">Hot</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Marketing</span>
+                            <span class="course-level-tag beginner">Beginner</span>
+                        </div>
+                        <h3 class="course-title">Digital Marketing Complete Guide 2026</h3>
+                        <p class="course-desc">Master SEO, SEM, social media marketing, email campaigns, and analytics. Google Ads and Meta Blueprint certified.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Sarah Johnson</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 10 Weeks</span>
+                            <span class="stat">📚 150 Lessons</span>
+                            <span class="stat">👥 2,134 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-value">4.6</span>
+                                <span class="rating-count">(2,134)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹14,999</span>
+                                <span class="price-current">₹7,499</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 7 -->
+                <article class="course-card" data-category="development" data-level="advanced">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Advanced React" class="course-thumb" loading="lazy">
+                        <span class="course-badge">Advanced</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Development</span>
+                            <span class="course-level-tag advanced">Advanced</span>
+                        </div>
+                        <h3 class="course-title">Advanced React & Next.js Architecture</h3>
+                        <p class="course-desc">Deep dive into React internals, server components, SSR/SSG, performance optimization, and enterprise patterns.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Ahmad Khan</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 8 Weeks</span>
+                            <span class="stat">📚 100 Lessons</span>
+                            <span class="stat">👥 987 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-count">(987)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹18,999</span>
+                                <span class="price-current">₹9,499</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 8 -->
+                <article class="course-card" data-category="business" data-level="intermediate">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product Management" class="course-thumb" loading="lazy">
+                        <span class="course-badge">Career</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Business</span>
+                            <span class="course-level-tag intermediate">Intermediate</span>
+                        </div>
+                        <h3 class="course-title">Product Management Fundamentals</h3>
+                        <p class="course-desc">Learn product strategy, roadmap planning, user research, agile methodologies, and stakeholder management.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Fatima Khoury</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 12 Weeks</span>
+                            <span class="stat">📚 160 Lessons</span>
+                            <span class="stat">👥 1,678 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.8</span>
+                                <span class="rating-count">(1,678)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹20,999</span>
+                                <span class="price-current">₹10,499</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+
+                <!-- Course 9 -->
+                <article class="course-card" data-category="data" data-level="advanced">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Deep Learning" class="course-thumb" loading="lazy">
+                        <span class="course-badge">AI</span>
+                        <div class="course-overlay">
+                            <button class="preview-btn">Preview Course</button>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-top">
+                            <span class="course-category-tag">Data Science</span>
+                            <span class="course-level-tag advanced">Advanced</span>
+                        </div>
+                        <h3 class="course-title">Deep Learning & Neural Networks</h3>
+                        <p class="course-desc">Build CNNs, RNNs, LSTMs, and Transformers from scratch. Implement GANs and deploy models to production.</p>
+                        <div class="course-instructor">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Instructor" class="instructor-avatar" loading="lazy">
+                            <span class="instructor-name">Jorge Martinez</span>
+                        </div>
+                        <div class="course-stats">
+                            <span class="stat">⏱ 20 Weeks</span>
+                            <span class="stat">📚 280 Lessons</span>
+                            <span class="stat">👥 654 Students</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-count">(654)</span>
+                            </div>
+                            <div class="course-price-wrap">
+                                <span class="price-original">₹34,999</span>
+                                <span class="price-current">₹17,499</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Enroll Now</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="catalog-pagination">
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn next">Next →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section section-reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pricing Plans</span>
+                <h2 class="section-title">Choose Your Learning Path</h2>
+                <p class="section-subtitle">Flexible pricing options designed to fit every budget and learning goal.</p>
+            </div>
+            
+            <div class="pricing-toggle">
+                <span class="toggle-label active">Monthly</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="pricing-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Yearly <span class="save-badge">Save 40%</span></span>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Starter</h3>
+                        <p class="pricing-desc">Perfect for beginners exploring new skills</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">₹</span>
+                        <span class="amount" data-monthly="999" data-yearly="599">999</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Access to 50+ basic courses</li>
+                        <li>✓ Community forum access</li>
+                        <li>✓ Monthly live Q&A sessions</li>
+                        <li>✓ Course completion certificates</li>
+                        <li>✗ 1-on-1 mentorship</li>
+                        <li>✗ Career services</li>
+                        <li>✗ Project reviews</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline btn-full">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Pro</h3>
+                        <p class="pricing-desc">For serious learners aiming for career growth</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">₹</span>
+                        <span class="amount" data-monthly="2,499" data-yearly="1,499">2,499</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Access to all 200+ courses</li>
+                        <li>✓ Priority community support</li>
+                        <li>✓ Weekly live workshops</li>
+                        <li>✓ Verified certificates</li>
+                        <li>✓ Monthly 1-on-1 mentorship</li>
+                        <li>✓ Resume & LinkedIn review</li>
+                        <li>✗ Job placement guarantee</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary btn-full">Start Pro Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Enterprise</h3>
+                        <p class="pricing-desc">Complete career transformation package</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">₹</span>
+                        <span class="amount" data-monthly="4,999" data-yearly="2,999">4,999</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ Unlimited mentorship calls</li>
+                        <li>✓ Daily live coding sessions</li>
+                        <li>✓ Industry-recognized credentials</li>
+                        <li>✓ Weekly 1-on-1 mentorship</li>
+                        <li>✓ Full career services</li>
+                        <li>✓ Job placement guarantee</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline btn-full">Go Enterprise</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-reveal">
+        <div class="cta-bg-pattern"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Not Sure Which Course to Choose?</h2>
+                <p class="cta-desc">Book a free 15-minute consultation with our career advisors to find the perfect learning path for your goals.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Book Free Consultation</a>
+                    <a href="contact.html" class="btn btn-outline btn-large">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" width="50" class="footer-logo">
+                        <span class="footer-brand-name">Stackly</span>
+                    </a>
+                    <p class="footer-desc">We help businesses and learners grow through data-driven education, innovative technology, and comprehensive skill development.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/stackly" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://instagram.com/stackly" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://twitter.com/stackly" class="social-icon" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/stackly" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.２ ２４ ２４ ２３．２２７ ２４ ２２．２７１V１．７２９C２４ .７７４ ２３．２ ０ ２２．２２２ ０h．００３z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="courses.html">Web Development</a></li>
+                        <li><a href="courses.html">Data Science</a></li>
+                        <li><a href="courses.html">Cybersecurity</a></li>
+                        <li><a href="courses.html">Cloud Computing</a></li>
+                        <li><a href="courses.html">UI/UX Design</a></li>
+                        <li><a href="courses.html">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">All Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Student Login</a></li>
+                        <li><a href="signup.html">Become an Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog & Articles</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Guides & Tutorials</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+                    <p class="newsletter-desc">Get the latest news, articles, and resources, sent to your inbox weekly.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+                    </form>
+                    <p class="newsletter-note">No spam. Only high-value insights, case studies, and growth hacks.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-contact-bar">
+                    <span>📍 MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+                    <span>📞 <a href="tel:+919876543210">+91 9876543210</a></span>
+                    <span>✉️ <a href="mailto:support@thestackly.com">support@thestackly.com</a></span>
+                </div>
+                <div class="footer-copyright">
+                    <p>© 2026 Stackly Learning Platform. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Empowering Your Learning Journey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Stage Loader -->
+    <div id="stage-loader" class="stage-loader">
+        <div class="loader-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly Logo" class="loader-logo" width="100">
+            <div class="loader-spinner">
+                <svg viewBox="0 0 100 100" class="spinner-svg">
+                    <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
+                    <circle cx="50" cy="50" r="40" class="spinner-active"></circle>
+                </svg>
+            </div>
+            <p class="loader-text">Initializing System Protocols...</p>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" class="brand-logo" width="40" height="40">
+                    <span class="brand-name">Stackly</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link active">Home <span class="dropdown-indicator">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#hero">Hero Section</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#courses">Popular Courses</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="about.html" class="nav-link">About Us <span class="dropdown-indicator">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html#mission">Our Mission</a></li>
+                        <li><a href="about.html#timeline">Growth Timeline</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="courses.html" class="nav-link">Courses <span class="dropdown-indicator">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="courses.html#catalog">All Courses</a></li>
+                        <li><a href="courses.html#pricing">Pricing</a></li>
+                        <li><a href="courses.html#categories">Categories</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <button class="hamburger-btn" aria-label="Open Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="mobile-logo-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" width="40">
+                    <span>Stackly</span>
+                </a>
+                <button class="mobile-close-btn" aria-label="Close Menu">✕</button>
+            </div>
+            <div class="mobile-menu-content">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="btn btn-primary mobile-cta">Get Started Now →</a></li>
+                </ul>
+                <div class="mobile-contact-info">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:+919876543210">📞 +91 9876543210</a></p>
+                    <p>📧 support@thestackly.com</p>
+                    <p>📍 Stackly, Salem</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-layer layer-1"></div>
+        <div class="hero-bg-layer layer-2"></div>
+        <div class="hero-particles" id="hero-particles"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Empowering Minds with</span>
+                    <span class="title-line accent">Cutting-Edge Learning.</span>
+                </h1>
+                <p class="hero-description">
+                    We are a forward-thinking e-learning platform specializing in innovative educational technology solutions that drive personal and professional transformation. From software development to data science, we deliver tailored courses to enhance efficiency, streamline skill acquisition, and foster growth for learners of all levels.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="courses.html" class="btn btn-primary btn-large">Explore Courses</a>
+                    <a href="about.html" class="btn btn-outline btn-large">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Active Learners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Expert Courses</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container" id="hero-tilt">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students Learning" class="hero-main-image" loading="lazy">
+                    <div class="floating-card card-1">
+                        <span class="card-icon">🎓</span>
+                        <span class="card-text">Certified Programs</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <span class="card-icon">⭐</span>
+                        <span class="card-text">4.9/5 Rating</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <span class="card-icon">🚀</span>
+                        <span class="card-text">Career Growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section section-reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Features That Power Success</h2>
+                <p class="section-subtitle">Discover the tools and resources designed to accelerate your learning journey and career advancement.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8L4 20v24l28 12 28-12V20L32 8z"/>
+                            <path d="M32 32v24"/>
+                            <path d="M32 32L4 20"/>
+                            <path d="M32 32l28-12"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Expert-Led Curriculum</h3>
+                    <p class="feature-desc">Learn from industry professionals and academic experts who bring real-world experience into every lesson, ensuring practical and applicable knowledge.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="24"/>
+                            <path d="M32 16v16l12 8"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Self-Paced Learning</h3>
+                    <p class="feature-desc">Study at your own convenience with lifetime access to course materials. Balance your education with work and personal commitments seamlessly.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="8" width="48" height="48" rx="4"/>
+                            <path d="M20 32h24"/>
+                            <path d="M32 20v24"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Interactive Projects</h3>
+                    <p class="feature-desc">Build a robust portfolio through hands-on projects and coding challenges. Apply theoretical concepts to practical scenarios from day one.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8v48M8 32h48"/>
+                            <circle cx="32" cy="32" r="16"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Global Community</h3>
+                    <p class="feature-desc">Connect with learners from over 120 countries. Collaborate on group projects, participate in forums, and expand your professional network.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 48V16l16-8 16 8v32l-16 8z"/>
+                            <path d="M32 8v48"/>
+                            <path d="M16 24l16 8 16-8"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Recognized Certificates</h3>
+                    <p class="feature-desc">Earn industry-recognized certificates upon completion. Showcase your credentials on LinkedIn and resume to stand out to employers worldwide.</p>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 52V20l20-12 20 12v32l-20 12z"/>
+                            <path d="M32 8v48"/>
+                            <path d="M12 20l20 12 20-12"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Career Support</h3>
+                    <p class="feature-desc">Access dedicated career counseling, resume reviews, mock interviews, and job placement assistance to transition smoothly into your dream role.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Courses Section -->
+    <section id="courses" class="courses-preview-section section-reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Featured Programs</span>
+                <h2 class="section-title">Popular Courses</h2>
+                <p class="section-subtitle">Explore our most enrolled programs designed by industry experts to help you master in-demand skills.</p>
+            </div>
+            
+            <div class="courses-preview-grid">
+                <article class="course-preview-card">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Full Stack Development" class="course-thumb" loading="lazy">
+                        <span class="course-badge">Bestseller</span>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Development</span>
+                        <h3 class="course-title">Full Stack Web Development Bootcamp</h3>
+                        <p class="course-desc">Master HTML, CSS, JavaScript, React, Node.js, and MongoDB in this comprehensive 12-week intensive program.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">⏱ 12 Weeks</span>
+                            <span class="course-level">📊 Beginner to Advanced</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(2,847)</span>
+                            </div>
+                            <span class="course-price">₹12,999</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="course-preview-card">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Science" class="course-thumb" loading="lazy">
+                        <span class="course-badge">Trending</span>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Data Science</span>
+                        <h3 class="course-title">Data Science & Machine Learning Mastery</h3>
+                        <p class="course-desc">Learn Python, Pandas, NumPy, Scikit-Learn, TensorFlow, and deep learning with real-world datasets and projects.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">⏱ 16 Weeks</span>
+                            <span class="course-level">📊 Intermediate</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(1,923)</span>
+                            </div>
+                            <span class="course-price">₹14,999</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="course-preview-card">
+                    <div class="course-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" class="course-thumb" loading="lazy">
+                        <span class="course-badge">New</span>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Security</span>
+                        <h3 class="course-title">Cybersecurity Fundamentals & Ethical Hacking</h3>
+                        <p class="course-desc">Understand network security, penetration testing, cryptography, and threat analysis from certified security professionals.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">⏱ 10 Weeks</span>
+                            <span class="course-level">📊 Beginner Friendly</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-count">(876)</span>
+                            </div>
+                            <span class="course-price">₹9,999</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="section-cta">
+                <a href="courses.html" class="btn btn-primary btn-large">View All Courses →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section id="about-preview" class="about-preview-section section-reveal">
+        <div class="container">
+            <div class="about-preview-grid">
+                <div class="about-preview-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stackly Team" class="about-img" loading="lazy">
+                    <div class="experience-badge">
+                        <span class="exp-number">8+</span>
+                        <span class="exp-text">Years of Excellence</span>
+                    </div>
+                </div>
+                <div class="about-preview-content">
+                    <span class="section-tag">About Company</span>
+                    <h2 class="section-title">Transforming Education Through Technology</h2>
+                    <p class="about-text">
+                        Stackly is a powerful platform that streamlines workflow, enhances efficiency, and drives digital success in education. It offers a user-friendly experience with seamless integration, making it an essential tool for businesses and individuals looking to optimize their online operations.
+                    </p>
+                    <p class="about-text">
+                        Founded in 2018, Stackly has grown into one of the leading and most innovative EdTech companies in the industry. With a team of over 120 talented professionals, we specialize in delivering cutting-edge technology solutions that drive business success. Our commitment to innovation, excellence, and customer satisfaction has positioned us as a trusted partner for learners seeking to leverage technology for growth and efficiency.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Industry-Recognized Certifications</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>1-on-1 Mentor Support</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Flexible Payment Options</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Money-Back Guarantee</span>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-outline">Discover Our Story →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section section-reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Students Say</h2>
+                <p class="section-subtitle">Real stories from real learners who transformed their careers with Stackly.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">The progress tracker is fantastic. It's motivating to see how much I've improved over time. The app has a great mix of common and challenging words. Stackly completely changed my career trajectory within 6 months.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Fatima Khoury" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h4 class="author-name">Fatima Khoury</h4>
+                            <span class="author-role">Software Engineer, Google</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">I transitioned from a non-technical background to a full-stack developer role thanks to Stackly's comprehensive curriculum and amazing mentor support. The hands-on projects were invaluable.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Hassan Ali" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h4 class="author-name">Hassan Ali</h4>
+                            <span class="author-role">Full Stack Developer, Microsoft</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">The data science course exceeded all my expectations. The instructors are world-class, and the community support helped me land my dream job at a Fortune 500 company within weeks of completion.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Jorge Martinez" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h4 class="author-name">Jorge Martinez</h4>
+                            <span class="author-role">Data Scientist, Amazon</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Stackly's cybersecurity program gave me the confidence and skills to pass my CISSP exam on the first attempt. The practical labs and real-world scenarios prepared me perfectly for the industry.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Nicolas Sanchez" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h4 class="author-name">Nicolas Sanchez</h4>
+                            <span class="author-role">Security Analyst, IBM</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">The UX/UI design course was incredibly thorough. I built a portfolio that impressed every interviewer I met. Stackly doesn't just teach skills—they teach you how to think like a designer.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Noel Jensen" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h4 class="author-name">Noel Jensen</h4>
+                            <span class="author-role">Product Designer, Apple</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">From cloud computing fundamentals to AWS certification, Stackly guided me every step of the way. The career services team even helped me negotiate a 40% salary increase at my new position.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ahmad Khan" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h4 class="author-name">Ahmad Khan</h4>
+                            <span class="author-role">Cloud Architect, Netflix</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-reveal">
+        <div class="cta-bg-pattern"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Learning Journey?</h2>
+                <p class="cta-desc">Join over 50,000 learners who have transformed their careers with Stackly. Enroll today and get 30% off your first course.</p>
+                <div class="cta-buttons">
+                    <a href="signup.html" class="btn btn-primary btn-large">Enroll Now — 30% Off</a>
+                    <a href="courses.html" class="btn btn-outline btn-large">Browse Courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" width="50" class="footer-logo">
+                        <span class="footer-brand-name">Stackly</span>
+                    </a>
+                    <p class="footer-desc">We help businesses and learners grow through data-driven education, innovative technology, and comprehensive skill development. Whether you're building a career or scaling your expertise globally — we're here to make it happen.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/stackly" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://instagram.com/stackly" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://twitter.com/stackly" class="social-icon" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/stackly" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="courses.html">Web Development</a></li>
+                        <li><a href="courses.html">Data Science</a></li>
+                        <li><a href="courses.html">Cybersecurity</a></li>
+                        <li><a href="courses.html">Cloud Computing</a></li>
+                        <li><a href="courses.html">UI/UX Design</a></li>
+                        <li><a href="courses.html">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">All Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Student Login</a></li>
+                        <li><a href="signup.html">Become an Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog & Articles</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Guides & Tutorials</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+                    <p class="newsletter-desc">Get the latest news, articles, and resources, sent to your inbox weekly.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+                    </form>
+                    <p class="newsletter-note">No spam. Only high-value insights, case studies, and growth hacks.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-contact-bar">
+                    <span>📍 MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+                    <span>📞 <a href="tel:+919876543210">+91 9876543210</a></span>
+                    <span>✉️ <a href="mailto:support@thestackly.com">support@thestackly.com</a></span>
+                </div>
+                <div class="footer-copyright">
+                    <p>© 2026 Stackly Learning Platform. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

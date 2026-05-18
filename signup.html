@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Stackly | Create Your Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <!-- Stage Loader -->
+    <div id="stage-loader" class="stage-loader">
+        <div class="loader-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly Logo" class="loader-logo" width="100">
+            <div class="loader-spinner">
+                <svg viewBox="0 0 100 100" class="spinner-svg">
+                    <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
+                    <circle cx="50" cy="50" r="40" class="spinner-active"></circle>
+                </svg>
+            </div>
+            <p class="loader-text">Preparing Your Account...</p>
+        </div>
+    </div>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-visual">
+            <div class="auth-visual-bg"></div>
+            <div class="auth-visual-content">
+                <a href="index.html" class="auth-logo-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" class="auth-logo" width="60">
+                    <span class="auth-brand-name">Stackly</span>
+                </a>
+                <h2 class="auth-visual-title">Start Your Learning Journey Today</h2>
+                <p class="auth-visual-text">Join 50,000+ learners worldwide. Get access to 200+ courses, expert mentorship, and career-changing opportunities.</p>
+                <div class="auth-visual-features">
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">🎓</span>
+                        <span class="auth-feature-text">200+ Expert Courses</span>
+                    </div>
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">👨‍🏫</span>
+                        <span class="auth-feature-text">1-on-1 Mentorship</span>
+                    </div>
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">🏆</span>
+                        <span class="auth-feature-text">Industry Certificates</span>
+                    </div>
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">💼</span>
+                        <span class="auth-feature-text">Career Placement</span>
+                    </div>
+                </div>
+                <div class="auth-trust-badges">
+                    <div class="trust-badge">⭐ 4.9/5 Rating</div>
+                    <div class="trust-badge">🛡️ Secure & Private</div>
+                    <div class="trust-badge">✓ 7-Day Guarantee</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-form-section">
+            <div class="auth-form-wrap">
+                <div class="auth-form-header">
+                    <h1 class="auth-form-title">Create Account</h1>
+                    <p class="auth-form-subtitle">Join Stackly and unlock your potential</p>
+                </div>
+
+                <form class="auth-form" id="signup-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-firstname" class="form-label">First Name *</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">👤</span>
+                                <input type="text" id="signup-firstname" name="firstname" class="form-input" placeholder="Enter first name" required>
+                            </div>
+                            <span class="form-error" id="error-signup-firstname">Please fill this field</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-lastname" class="form-label">Last Name *</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">👤</span>
+                                <input type="text" id="signup-lastname" name="lastname" class="form-input" placeholder="Enter last name" required>
+                            </div>
+                            <span class="form-error" id="error-signup-lastname">Please fill this field</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email" class="form-label">Email Address *</label>
+                        <div class="input-wrap">
+                            <span class="input-icon">✉️</span>
+                            <input type="email" id="signup-email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        <span class="form-error" id="error-signup-email">Please fill this field</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-mobile" class="form-label">Mobile Number</label>
+                        <div class="input-wrap">
+                            <span class="input-icon">📱</span>
+                            <input type="tel" id="signup-mobile" name="mobile" class="form-input" placeholder="+91 9876543210">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-password" class="form-label">Password *</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="signup-password" name="password" class="form-input" placeholder="Min. 8 characters" required minlength="8">
+                                <button type="button" class="password-toggle" id="signup-password-toggle" aria-label="Toggle password visibility">👁️</button>
+                            </div>
+                            <span class="form-error" id="error-signup-password">Please fill this field</span>
+                            <div class="password-strength" id="password-strength">
+                                <div class="strength-bar"><div class="strength-fill"></div></div>
+                                <span class="strength-text">Password strength</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm" class="form-label">Confirm Password *</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="signup-confirm" name="confirm" class="form-input" placeholder="Confirm your password" required>
+                            </div>
+                            <span class="form-error" id="error-signup-confirm">Please fill this field</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-interest" class="form-label">Primary Interest</label>
+                        <select id="signup-interest" name="interest" class="form-select">
+                            <option value="">Select your primary interest</option>
+                            <option value="development">Web Development</option>
+                            <option value="data">Data Science</option>
+                            <option value="security">Cybersecurity</option>
+                            <option value="cloud">Cloud Computing</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="marketing">Digital Marketing</option>
+                            <option value="business">Business & Product</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" class="checkbox-input" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> *</span>
+                        </label>
+                        <span class="form-error" id="error-signup-terms">Please fill this field</span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" class="checkbox-input" checked>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Send me updates about new courses, offers, and learning tips</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-full" id="signup-submit">Create Account</button>
+
+                    <div class="auth-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">or sign up with</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                            Google
+                        </button>
+                        <button type="button" class="social-btn github">
+                            <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </button>
+                    </div>
+
+                    <p class="auth-switch">Already have an account? <a href="login.html" class="auth-switch-link">Sign In</a></p>
+                </form>
+
+                <div class="auth-footer">
+                    <p>By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
