@@ -10,7 +10,7 @@
     <!-- Stage Loader -->
     <div id="stage-loader" class="stage-loader">
         <div class="loader-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly Logo" class="loader-logo" width="100">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="loader-logo" width="100">
             <div class="loader-spinner">
                 <svg viewBox="0 0 100 100" class="spinner-svg">
                     <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
@@ -27,14 +27,14 @@
         <aside class="dashboard-sidebar" id="dashboard-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Stackly" class="sidebar-logo" width="40">
-                    <span class="sidebar-brand">Stackly</span>
+                    <img src="assets/logo.webp" alt="Stackly" class="sidebar-logo" width="40">
+                    
                 </a>
                 <button class="sidebar-close" id="sidebar-close" aria-label="Close Sidebar">✕</button>
             </div>
 
             <div class="sidebar-user">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="User" class="sidebar-avatar" id="user-avatar" loading="lazy">
+                <img src="assets/img_27.webp" alt="User" class="sidebar-avatar" id="user-avatar" loading="lazy">
                 <div class="sidebar-user-info">
                     <span class="sidebar-user-name" id="user-name">Scholar</span>
                     <span class="sidebar-user-email" id="user-email">Loading...</span>
@@ -46,27 +46,27 @@
                     <span class="sidebar-section-title">Main</span>
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="#" class="sidebar-link active" data-panel="overview">
+                            <a href="404.html" class="sidebar-link active" data-panel="overview">
                                 <span class="sidebar-icon">📊</span>
                                 <span class="sidebar-text">Overview</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link" data-panel="courses">
+                            <a href="404.html" class="sidebar-link" data-panel="courses">
                                 <span class="sidebar-icon">📚</span>
                                 <span class="sidebar-text">My Courses</span>
                                 <span class="sidebar-badge">4</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link" data-panel="certificates">
+                            <a href="404.html" class="sidebar-link" data-panel="certificates">
                                 <span class="sidebar-icon">🏆</span>
                                 <span class="sidebar-text">Certificates</span>
                                 <span class="sidebar-badge">2</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link" data-panel="analytics">
+                            <a href="404.html" class="sidebar-link" data-panel="analytics">
                                 <span class="sidebar-icon">📈</span>
                                 <span class="sidebar-text">Analytics</span>
                             </a>
@@ -77,19 +77,19 @@
                     <span class="sidebar-section-title">Account</span>
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="#" class="sidebar-link" data-panel="profile">
+                            <a href="404.html" class="sidebar-link" data-panel="profile">
                                 <span class="sidebar-icon">👤</span>
                                 <span class="sidebar-text">Profile</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link" data-panel="settings">
+                            <a href="404.html" class="sidebar-link" data-panel="settings">
                                 <span class="sidebar-icon">⚙️</span>
                                 <span class="sidebar-text">Settings</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link" id="logout-btn">
+                            <a href="404.html" class="sidebar-link" id="logout-btn">
                                 <span class="sidebar-icon">🚪</span>
                                 <span class="sidebar-text">Logout</span>
                             </a>
@@ -125,20 +125,20 @@
                 </div>
 
                 <div class="dashboard-actions">
-                    <button class="action-btn" aria-label="Notifications">
+                    <button class="action-btn" aria-label="Notifications" onclick="window.location.href='404.html'">
                         <span class="action-icon">🔔</span>
                         <span class="action-badge">3</span>
                     </button>
-                    <button class="action-btn" aria-label="Messages">
+                    <button class="action-btn" aria-label="Messages" onclick="window.location.href='404.html'">
                         <span class="action-icon">💬</span>
                         <span class="action-badge">5</span>
                     </button>
                     <div class="user-dropdown">
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="User" class="user-dropdown-avatar" loading="lazy">
+                        <img src="assets/img_28.webp" alt="User" class="user-dropdown-avatar" loading="lazy">
                         <div class="dropdown-menu user-menu">
-                            <a href="#" data-panel="profile">Profile</a>
-                            <a href="#" data-panel="settings">Settings</a>
-                            <a href="#" id="header-logout">Logout</a>
+                            <a href="#overview" onclick="document.querySelector('.sidebar-link[data-panel=\'overview\']').click(); return false;"> 👤 My Account</a>
+                            <a href="#settings" onclick="document.querySelector('.sidebar-link[data-panel=\'settings\']').click(); return false;"> ⚙️ Settings</a>
+                            <a href="#" id="header-logout"> 🚪 Logout</a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     </div>
 
                     <div class="stats-grid">
-                        <div class="stat-card">
+                        <div class="stat-card section-reveal" data-tilt>
                             <div class="stat-icon">📚</div>
                             <div class="stat-info">
                                 <span class="stat-value">4</span>
@@ -162,7 +162,7 @@
                             </div>
                             <div class="stat-trend up">↑ 12%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card section-reveal" data-tilt>
                             <div class="stat-icon">⏱️</div>
                             <div class="stat-info">
                                 <span class="stat-value">127</span>
@@ -170,7 +170,7 @@
                             </div>
                             <div class="stat-trend up">↑ 8%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card section-reveal" data-tilt>
                             <div class="stat-icon">🏆</div>
                             <div class="stat-info">
                                 <span class="stat-value">2</span>
@@ -178,7 +178,7 @@
                             </div>
                             <div class="stat-trend up">↑ 100%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card section-reveal" data-tilt>
                             <div class="stat-icon">⭐</div>
                             <div class="stat-info">
                                 <span class="stat-value">94%</span>
@@ -189,15 +189,15 @@
                     </div>
 
                     <div class="dashboard-grid-2">
-                        <div class="dashboard-card">
+                        <div class="dashboard-card section-reveal" data-tilt>
                             <div class="card-header">
                                 <h3 class="card-title">Continue Learning</h3>
-                                <a href="#" class="card-link" data-panel="courses">View All →</a>
+                                <a href="404.html" class="card-link" data-panel="courses">View All →</a>
                             </div>
                             <div class="course-progress-list">
-                                <div class="course-progress-item">
+                                <div class="course-progress-item section-reveal" data-tilt>
                                     <div class="course-progress-thumb">
-                                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Course" loading="lazy">
+                                        <img src="assets/img_29.webp" alt="Course" loading="lazy">
                                     </div>
                                     <div class="course-progress-info">
                                         <h4 class="course-progress-title">Full Stack Web Development</h4>
@@ -206,11 +206,11 @@
                                             <div class="progress-fill-small" style="width: 67%"></div>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn btn-small btn-primary">Continue</a>
+                                    <a href="404.html" class="btn btn-small btn-primary">Continue</a>
                                 </div>
-                                <div class="course-progress-item">
+                                <div class="course-progress-item section-reveal" data-tilt>
                                     <div class="course-progress-thumb">
-                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Course" loading="lazy">
+                                        <img src="assets/img_30.webp" alt="Course" loading="lazy">
                                     </div>
                                     <div class="course-progress-info">
                                         <h4 class="course-progress-title">Data Science & ML</h4>
@@ -219,11 +219,11 @@
                                             <div class="progress-fill-small" style="width: 31%"></div>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn btn-small btn-primary">Continue</a>
+                                    <a href="404.html" class="btn btn-small btn-primary">Continue</a>
                                 </div>
-                                <div class="course-progress-item">
+                                <div class="course-progress-item section-reveal" data-tilt>
                                     <div class="course-progress-thumb">
-                                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Course" loading="lazy">
+                                        <img src="assets/img_31.webp" alt="Course" loading="lazy">
                                     </div>
                                     <div class="course-progress-info">
                                         <h4 class="course-progress-title">UI/UX Design Masterclass</h4>
@@ -232,18 +232,18 @@
                                             <div class="progress-fill-small" style="width: 38%"></div>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn btn-small btn-primary">Continue</a>
+                                    <a href="404.html" class="btn btn-small btn-primary">Continue</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="dashboard-card">
+                        <div class="dashboard-card section-reveal" data-tilt>
                             <div class="card-header">
                                 <h3 class="card-title">Recent Achievements</h3>
-                                <a href="#" class="card-link" data-panel="certificates">View All →</a>
+                                <a href="404.html" class="card-link" data-panel="certificates">View All →</a>
                             </div>
                             <div class="achievements-list">
-                                <div class="achievement-item">
+                                <div class="achievement-item section-reveal" data-tilt>
                                     <div class="achievement-badge">🥇</div>
                                     <div class="achievement-info">
                                         <h4 class="achievement-title">JavaScript Expert</h4>
@@ -251,7 +251,7 @@
                                         <span class="achievement-date">2 days ago</span>
                                     </div>
                                 </div>
-                                <div class="achievement-item">
+                                <div class="achievement-item section-reveal" data-tilt>
                                     <div class="achievement-badge">🎯</div>
                                     <div class="achievement-info">
                                         <h4 class="achievement-title">7-Day Streak</h4>
@@ -259,7 +259,7 @@
                                         <span class="achievement-date">5 days ago</span>
                                     </div>
                                 </div>
-                                <div class="achievement-item">
+                                <div class="achievement-item section-reveal" data-tilt>
                                     <div class="achievement-badge">📜</div>
                                     <div class="achievement-info">
                                         <h4 class="achievement-title">Certificate Earned</h4>
@@ -271,7 +271,7 @@
                         </div>
                     </div>
 
-                    <div class="dashboard-card full-width">
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
                         <div class="card-header">
                             <h3 class="card-title">Weekly Learning Activity</h3>
                             <div class="chart-legend">
@@ -333,9 +333,9 @@
                         <p class="panel-subtitle">Track your progress across all enrolled programs.</p>
                     </div>
                     <div class="dashboard-courses-grid">
-                        <div class="dashboard-course-card">
+                        <div class="dashboard-course-card section-reveal" data-tilt>
                             <div class="dashboard-course-image">
-                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Course" loading="lazy">
+                                <img src="assets/img_32.webp" alt="Course" loading="lazy">
                                 <span class="course-status in-progress">In Progress</span>
                             </div>
                             <div class="dashboard-course-body">
@@ -351,14 +351,14 @@
                                     </div>
                                 </div>
                                 <div class="dashboard-course-actions">
-                                    <a href="#" class="btn btn-primary">Continue Learning</a>
-                                    <a href="#" class="btn btn-outline">Course Details</a>
+                                    <a href="404.html" class="btn btn-primary">Continue Learning</a>
+                                    <a href="404.html" class="btn btn-outline">Course Details</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-course-card">
+                        <div class="dashboard-course-card section-reveal" data-tilt>
                             <div class="dashboard-course-image">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Course" loading="lazy">
+                                <img src="assets/img_33.webp" alt="Course" loading="lazy">
                                 <span class="course-status in-progress">In Progress</span>
                             </div>
                             <div class="dashboard-course-body">
@@ -374,14 +374,14 @@
                                     </div>
                                 </div>
                                 <div class="dashboard-course-actions">
-                                    <a href="#" class="btn btn-primary">Continue Learning</a>
-                                    <a href="#" class="btn btn-outline">Course Details</a>
+                                    <a href="404.html" class="btn btn-primary">Continue Learning</a>
+                                    <a href="404.html" class="btn btn-outline">Course Details</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-course-card">
+                        <div class="dashboard-course-card section-reveal" data-tilt>
                             <div class="dashboard-course-image">
-                                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Course" loading="lazy">
+                                <img src="assets/img_34.webp" alt="Course" loading="lazy">
                                 <span class="course-status in-progress">In Progress</span>
                             </div>
                             <div class="dashboard-course-body">
@@ -397,14 +397,14 @@
                                     </div>
                                 </div>
                                 <div class="dashboard-course-actions">
-                                    <a href="#" class="btn btn-primary">Continue Learning</a>
-                                    <a href="#" class="btn btn-outline">Course Details</a>
+                                    <a href="404.html" class="btn btn-primary">Continue Learning</a>
+                                    <a href="404.html" class="btn btn-outline">Course Details</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-course-card completed">
+                        <div class="dashboard-course-card completed section-reveal" data-tilt>
                             <div class="dashboard-course-image">
-                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Course" loading="lazy">
+                                <img src="assets/img_35.webp" alt="Course" loading="lazy">
                                 <span class="course-status completed">Completed</span>
                             </div>
                             <div class="dashboard-course-body">
@@ -420,8 +420,8 @@
                                     </div>
                                 </div>
                                 <div class="dashboard-course-actions">
-                                    <a href="#" class="btn btn-outline">View Certificate</a>
-                                    <a href="#" class="btn btn-outline">Review Course</a>
+                                    <a href="404.html" class="btn btn-outline">View Certificate</a>
+                                    <a href="404.html" class="btn btn-outline">Review Course</a>
                                 </div>
                             </div>
                         </div>
@@ -435,7 +435,7 @@
                         <p class="panel-subtitle">Your earned credentials and achievements.</p>
                     </div>
                     <div class="certificates-grid">
-                        <div class="certificate-card">
+                        <div class="certificate-card section-reveal" data-tilt>
                             <div class="certificate-preview">
                                 <div class="certificate-badge-large">🏆</div>
                                 <h3 class="certificate-name">HTML & CSS Fundamentals</h3>
@@ -443,11 +443,11 @@
                                 <p class="certificate-date">Issued: May 10, 2026</p>
                             </div>
                             <div class="certificate-actions">
-                                <a href="#" class="btn btn-primary btn-small">Download PDF</a>
-                                <a href="#" class="btn btn-outline btn-small">Share</a>
+                                <a href="404.html" class="btn btn-primary btn-small">Download PDF</a>
+                                <a href="404.html" class="btn btn-outline btn-small">Share</a>
                             </div>
                         </div>
-                        <div class="certificate-card">
+                        <div class="certificate-card section-reveal" data-tilt>
                             <div class="certificate-preview">
                                 <div class="certificate-badge-large">🏆</div>
                                 <h3 class="certificate-name">JavaScript Essentials</h3>
@@ -455,11 +455,11 @@
                                 <p class="certificate-date">Issued: May 15, 2026</p>
                             </div>
                             <div class="certificate-actions">
-                                <a href="#" class="btn btn-primary btn-small">Download PDF</a>
-                                <a href="#" class="btn btn-outline btn-small">Share</a>
+                                <a href="404.html" class="btn btn-primary btn-small">Download PDF</a>
+                                <a href="404.html" class="btn btn-outline btn-small">Share</a>
                             </div>
                         </div>
-                        <div class="certificate-card locked">
+                        <div class="certificate-card locked section-reveal" data-tilt>
                             <div class="certificate-preview">
                                 <div class="certificate-badge-large">🔒</div>
                                 <h3 class="certificate-name">Full Stack Certification</h3>
@@ -467,7 +467,7 @@
                                 <p class="certificate-progress">8/12 modules completed</p>
                             </div>
                             <div class="certificate-actions">
-                                <a href="#" class="btn btn-outline btn-small">Continue Course</a>
+                                <a href="404.html" class="btn btn-outline btn-small">Continue Course</a>
                             </div>
                         </div>
                     </div>
@@ -480,7 +480,7 @@
                         <p class="panel-subtitle">Track your performance and learning patterns.</p>
                     </div>
                     <div class="analytics-grid">
-                        <div class="analytics-card">
+                        <div class="analytics-card section-reveal" data-tilt>
                             <h3 class="analytics-title">Study Time Distribution</h3>
                             <div class="analytics-chart donut-chart">
                                 <div class="donut-segment" style="--value: 35; --color: #64ffda">Development 35%</div>
@@ -489,7 +489,7 @@
                                 <div class="donut-segment" style="--value: 20; --color: #233554">Other 20%</div>
                             </div>
                         </div>
-                        <div class="analytics-card">
+                        <div class="analytics-card section-reveal" data-tilt>
                             <h3 class="analytics-title">Monthly Progress</h3>
                             <div class="analytics-chart bar-chart">
                                 <div class="bar-item"><span class="bar-label">Jan</span><div class="bar" style="height: 40%"></div></div>
@@ -499,7 +499,7 @@
                                 <div class="bar-item"><span class="bar-label">May</span><div class="bar" style="height: 85%"></div></div>
                             </div>
                         </div>
-                        <div class="analytics-card full-width">
+                        <div class="analytics-card full-width section-reveal" data-tilt>
                             <h3 class="analytics-title">Skill Assessment</h3>
                             <div class="skill-bars">
                                 <div class="skill-bar">
@@ -541,7 +541,7 @@
                     <div class="profile-card">
                         <div class="profile-header">
                             <div class="profile-avatar-wrap">
-                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Profile" class="profile-avatar-large" loading="lazy">
+                                <img src="assets/img_36.webp" alt="Profile" class="profile-avatar-large" loading="lazy">
                                 <button class="avatar-edit">📷</button>
                             </div>
                             <div class="profile-header-info">
@@ -554,11 +554,13 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">First Name</label>
-                                    <input type="text" class="form-input" value="Scholar">
+                                    <input type="text" class="form-input" value="Scholar" id="profile-fname" required>
+                                    <span class="error-message" id="error-profile-fname"></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Last Name</label>
-                                    <input type="text" class="form-input" value="User">
+                                    <input type="text" class="form-input" value="User" id="profile-lname" required>
+                                    <span class="error-message" id="error-profile-lname"></span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -654,7 +656,7 @@
                                     <span class="danger-name">Delete Account</span>
                                     <span class="danger-desc">Permanently delete your account and all data</span>
                                 </div>
-                                <button class="btn btn-danger btn-small">Delete</button>
+                                <button class="btn btn-danger btn-small" onclick="if(confirm('Are you sure you want to delete your account? This action cannot be undone.')) { sessionStorage.removeItem('stacklyUserEmail'); window.location.href='index.html'; }">Delete</button>
                             </div>
                         </div>
                     </div>
