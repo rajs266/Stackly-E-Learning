@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Stackly | Student Workspace</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="dashboard-page">
+    <!-- Stage Loader -->
+    <div id="stage-loader" class="stage-loader">
+        <div class="loader-content">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="loader-logo" width="100">
+            <div class="loader-spinner">
+                <svg viewBox="0 0 100 100" class="spinner-svg">
+                    <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
+                    <circle cx="50" cy="50" r="40" class="spinner-active"></circle>
+                </svg>
+            </div>
+            <p class="loader-text">Loading Your Dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo-link">
+                    <img src="assets/logo.webp" alt="Stackly" class="sidebar-logo" width="40">
+                </a>
+                <button class="sidebar-close" id="sidebar-close" aria-label="Close Sidebar">✕</button>
+            </div>
+
+            <div class="sidebar-user">
+                <img src="assets/img_27.webp" alt="User" class="sidebar-avatar" id="user-avatar" loading="lazy">
+                <div class="sidebar-user-info">
+                    <span class="sidebar-user-name" id="user-name">Scholar</span>
+                    <span class="sidebar-user-email" id="user-email">Loading...</span>
+                    <span class="sidebar-user-role" id="user-role-badge">Student</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" id="student-nav">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-title">Main</span>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#overview" class="sidebar-link active" data-panel="overview">
+                                <span class="sidebar-icon">📊</span>
+                                <span class="sidebar-text">Overview</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#courses" class="sidebar-link" data-panel="courses">
+                                <span class="sidebar-icon">📚</span>
+                                <span class="sidebar-text">My Courses</span>
+                                <span class="sidebar-badge">4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#certificates" class="sidebar-link" data-panel="certificates">
+                                <span class="sidebar-icon">🏆</span>
+                                <span class="sidebar-text">Certificates</span>
+                                <span class="sidebar-badge">2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#analytics" class="sidebar-link" data-panel="analytics">
+                                <span class="sidebar-icon">📈</span>
+                                <span class="sidebar-text">Analytics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <span class="sidebar-section-title">Account</span>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#profile" class="sidebar-link" data-panel="profile">
+                                <span class="sidebar-icon">👤</span>
+                                <span class="sidebar-text">Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#settings" class="sidebar-link" data-panel="settings">
+                                <span class="sidebar-icon">⚙️</span>
+                                <span class="sidebar-text">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="sidebar-link" id="logout-btn">
+                                <span class="sidebar-icon">🚪</span>
+                                <span class="sidebar-text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-progress" id="student-progress">
+                    <span class="progress-label">Weekly Goal</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <span class="progress-value">15/20 hours completed</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Top Header -->
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="dashboard-welcome" id="dashboard-welcome">
+                    <h1 class="welcome-title">Welcome Back, Scholar!</h1>
+                    <p class="welcome-email" id="welcome-email">scholar@stackly.com</p>
+                </div>
+
+                <div class="dashboard-actions">
+                    <button class="action-btn" aria-label="Notifications" onclick="window.location.href='404.html'">
+                        <span class="action-icon">🔔</span>
+                        <span class="action-badge">3</span>
+                    </button>
+                    <button class="action-btn" aria-label="Messages" onclick="window.location.href='404.html'">
+                        <span class="action-icon">💬</span>
+                        <span class="action-badge">5</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <img src="assets/img_28.webp" alt="User" class="user-dropdown-avatar" loading="lazy">
+                        <div class="dropdown-menu user-menu">
+                            <a href="#profile" onclick="document.querySelector('.sidebar-link[data-panel=\'profile\']').click(); return false;"> 👤 My Account</a>
+                            <a href="#settings" onclick="document.querySelector('.sidebar-link[data-panel=\'settings\']').click(); return false;"> ⚙️ Settings</a>
+                            <a href="index.html" id="header-logout"> 🚪 Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Panels -->
+            <div class="dashboard-content" id="dashboard-content">
+
+                <!-- Overview Panel -->
+                <div class="dashboard-panel active" id="panel-overview">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Dashboard Overview</h2>
+                        <p class="panel-subtitle">Here's what's happening with your learning journey today.</p>
+                    </div>
+
+
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">📚</div>
+                            <div class="stat-info">
+                                <span class="stat-value">4</span>
+                                <span class="stat-label">Active Courses</span>
+                            </div>
+                            <div class="stat-trend up">↑ 12%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-info">
+                                <span class="stat-value">127</span>
+                                <span class="stat-label">Hours Learned</span>
+                            </div>
+                            <div class="stat-trend up">↑ 8%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-info">
+                                <span class="stat-value">2</span>
+                                <span class="stat-label">Certificates</span>
+                            </div>
+                            <div class="stat-trend up">↑ 100%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info">
+                                <span class="stat-value">94%</span>
+                                <span class="stat-label">Avg. Score</span>
+                            </div>
+                            <div class="stat-trend up">↑ 3%</div>
+                        </div>
+                    </div>
+
+                    <!-- Two Column Layout -->
+                    <div class="dashboard-grid-2">
+                        <!-- Continue Learning -->
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Continue Learning</h3>
+                                <a href="#courses" class="card-link" onclick="document.querySelector('.sidebar-link[data-panel=\'courses\']').click(); return false;">View All →</a>
+                            </div>
+                            <div class="course-progress-list">
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-thumb">
+                                        <img src="assets/img_29.webp" alt="Course" loading="lazy">
+                                    </div>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Full Stack Web Development</h4>
+                                        <p class="course-progress-meta">Module 8 of 12 • 67% Complete</p>
+                                        <div class="progress-bar-small">
+                                            <div class="progress-fill-small" style="width: 67%"></div>
+                                        </div>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-primary">Continue</a>
+                                </div>
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-thumb">
+                                        <img src="assets/img_30.webp" alt="Course" loading="lazy">
+                                    </div>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Data Science & ML</h4>
+                                        <p class="course-progress-meta">Module 5 of 16 • 31% Complete</p>
+                                        <div class="progress-bar-small">
+                                            <div class="progress-fill-small" style="width: 31%"></div>
+                                        </div>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-primary">Continue</a>
+                                </div>
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-thumb">
+                                        <img src="assets/img_31.webp" alt="Course" loading="lazy">
+                                    </div>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">UI/UX Design Masterclass</h4>
+                                        <p class="course-progress-meta">Module 3 of 8 • 38% Complete</p>
+                                        <div class="progress-bar-small">
+                                            <div class="progress-fill-small" style="width: 38%"></div>
+                                        </div>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-primary">Continue</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Achievements -->
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Achievements</h3>
+                                <a href="#certificates" class="card-link" onclick="document.querySelector('.sidebar-link[data-panel=\'certificates\']').click(); return false;">View All →</a>
+                            </div>
+                            <div class="achievements-list">
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">🥇</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">JavaScript Expert</h4>
+                                        <p class="achievement-desc">Completed Advanced JS module with 98% score</p>
+                                        <span class="achievement-date">2 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">🎯</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">7-Day Streak</h4>
+                                        <p class="achievement-desc">Logged in and studied for 7 consecutive days</p>
+                                        <span class="achievement-date">5 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">📜</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Certificate Earned</h4>
+                                        <p class="achievement-desc">HTML & CSS Fundamentals Certification</p>
+                                        <span class="achievement-date">1 week ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Sessions & Community -->
+                    <div class="dashboard-grid-2" style="margin-top: 2rem;">
+                        <!-- Live Mentorship Sessions -->
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Live Mentorship Sessions</h3>
+                                <a href="404.html" class="card-link">View Schedule →</a>
+                            </div>
+                            <div class="course-progress-list">
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">1-on-1 Career Guidance</h4>
+                                        <p class="course-progress-meta">With Sarah Johnson • Today, 4:00 PM</p>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-primary">Join</a>
+                                </div>
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Group Coding Interview Prep</h4>
+                                        <p class="course-progress-meta">With David Chen • Tomorrow, 10:00 AM</p>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-outline">RSVP</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Community Discussions -->
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Community Discussions</h3>
+                                <a href="404.html" class="card-link">Join Forum →</a>
+                            </div>
+                            <div class="achievements-list">
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">💬</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Best resources for React Hooks?</h4>
+                                        <p class="achievement-desc">24 replies • Last active 10 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">🔥</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Share your portfolio feedback</h4>
+                                        <p class="achievement-desc">156 replies • Last active 1 hour ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Deadlines -->
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">Upcoming Deadlines</h3>
+                            <a href="404.html" class="card-link">View Calendar →</a>
+                        </div>
+                        <div class="deadlines-list">
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <span class="deadline-day">22</span>
+                                    <span class="deadline-month">May</span>
+                                </div>
+                                <div class="deadline-info">
+                                    <h4 class="deadline-title">React Project Submission</h4>
+                                    <p class="deadline-course">Full Stack Web Development • Module 8</p>
+                                </div>
+                                <span class="deadline-badge urgent">2 days left</span>
+                            </div>
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <span class="deadline-day">25</span>
+                                    <span class="deadline-month">May</span>
+                                </div>
+                                <div class="deadline-info">
+                                    <h4 class="deadline-title">Data Analysis Quiz</h4>
+                                    <p class="deadline-course">Data Science & ML • Module 5</p>
+                                </div>
+                                <span class="deadline-badge">5 days left</span>
+                            </div>
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <span class="deadline-day">28</span>
+                                    <span class="deadline-month">May</span>
+                                </div>
+                                <div class="deadline-info">
+                                    <h4 class="deadline-title">UI Design Portfolio</h4>
+                                    <p class="deadline-course">UI/UX Design Masterclass • Module 3</p>
+                                </div>
+                                <span class="deadline-badge">8 days left</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Learning Activity -->
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">Weekly Learning Activity</h3>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="legend-dot" style="background: #64ffda"></span>Study Hours</span>
+                                <span class="legend-item"><span class="legend-dot" style="background: #ccd6f6"></span>Assignments</span>
+                            </div>
+                        </div>
+                        <div class="activity-chart" id="activity-chart">
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 60%">
+                                    <div class="chart-bar-fill study" style="height: 70%"></div>
+                                </div>
+                                <span class="chart-label">Mon</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 80%">
+                                    <div class="chart-bar-fill study" style="height: 85%"></div>
+                                </div>
+                                <span class="chart-label">Tue</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 45%">
+                                    <div class="chart-bar-fill study" style="height: 50%"></div>
+                                </div>
+                                <span class="chart-label">Wed</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 90%">
+                                    <div class="chart-bar-fill study" style="height: 95%"></div>
+                                </div>
+                                <span class="chart-label">Thu</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 70%">
+                                    <div class="chart-bar-fill study" style="height: 75%"></div>
+                                </div>
+                                <span class="chart-label">Fri</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 100%">
+                                    <div class="chart-bar-fill study" style="height: 100%"></div>
+                                </div>
+                                <span class="chart-label">Sat</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 30%">
+                                    <div class="chart-bar-fill study" style="height: 35%"></div>
+                                </div>
+                                <span class="chart-label">Sun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Courses -->
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">Recommended For You</h3>
+                            <a href="404.html" class="card-link">Browse All →</a>
+                        </div>
+                        <div class="recommended-courses">
+                            <div class="rec-course-card">
+                                <img src="assets/img_32.webp" alt="Course" class="rec-course-img" loading="lazy">
+                                <div class="rec-course-info">
+                                    <span class="rec-course-category">Web Development</span>
+                                    <h4 class="rec-course-title">Advanced React Patterns</h4>
+                                    <p class="rec-course-instructor">Instructor: Karthik Subramanian</p>
+                                    <div class="rec-course-meta">
+                                        <span>⭐ 4.9</span>
+                                        <span>👥 1.2k students</span>
+                                    </div>
+                                </div>
+                                <a href="404.html" class="btn btn-primary btn-small">Enroll Now</a>
+                            </div>
+                            <div class="rec-course-card">
+                                <img src="assets/img_33.webp" alt="Course" class="rec-course-img" loading="lazy">
+                                <div class="rec-course-info">
+                                    <span class="rec-course-category">Data Science</span>
+                                    <h4 class="rec-course-title">Python for Data Analysis</h4>
+                                    <p class="rec-course-instructor">Instructor: Dr. Priya Sharma</p>
+                                    <div class="rec-course-meta">
+                                        <span>⭐ 4.8</span>
+                                        <span>👥 890 students</span>
+                                    </div>
+                                </div>
+                                <a href="404.html" class="btn btn-primary btn-small">Enroll Now</a>
+                            </div>
+                            <div class="rec-course-card">
+                                <img src="assets/img_34.webp" alt="Course" class="rec-course-img" loading="lazy">
+                                <div class="rec-course-info">
+                                    <span class="rec-course-category">Design</span>
+                                    <h4 class="rec-course-title">Figma Mastery</h4>
+                                    <p class="rec-course-instructor">Instructor: Meera Iyer</p>
+                                    <div class="rec-course-meta">
+                                        <span>⭐ 4.7</span>
+                                        <span>👥 650 students</span>
+                                    </div>
+                                </div>
+                                <a href="404.html" class="btn btn-primary btn-small">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Streak -->
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">Learning Streak</h3>
+                            <span class="card-link">🔥 7 Days</span>
+                        </div>
+                        <div class="streak-calendar">
+                            <div class="streak-day active">M</div>
+                            <div class="streak-day active">T</div>
+                            <div class="streak-day active">W</div>
+                            <div class="streak-day active">T</div>
+                            <div class="streak-day active">F</div>
+                            <div class="streak-day active">S</div>
+                            <div class="streak-day today">S</div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: var(--space-md);">You're on a 7-day streak! Keep it up to earn the 30-day streak badge.</p>
+                    </div>
+                </div>
+
+                <!-- My Courses Panel -->
+                <div class="dashboard-panel" id="panel-courses">
+                    <div class="panel-header">
+                        <h2 class="panel-title">My Courses</h2>
+                        <p class="panel-subtitle">Track your progress across all enrolled programs.</p>
+                    </div>
+                    <div class="dashboard-courses-grid">
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_32.webp" alt="Course" loading="lazy">
+                                <span class="course-status in-progress">In Progress</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">Full Stack Web Development Bootcamp</h3>
+                                <p class="dashboard-course-instructor">Instructor: Karthik Subramanian</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>67% Complete</span>
+                                        <span>8/12 Modules</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 67%"></div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Continue Learning</a>
+                                    <a href="404.html" class="btn btn-outline">Course Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_33.webp" alt="Course" loading="lazy">
+                                <span class="course-status in-progress">In Progress</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">Data Science & Machine Learning</h3>
+                                <p class="dashboard-course-instructor">Instructor: Dr. Priya Sharma</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>31% Complete</span>
+                                        <span>5/16 Modules</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 31%"></div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Continue Learning</a>
+                                    <a href="404.html" class="btn btn-outline">Course Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_34.webp" alt="Course" loading="lazy">
+                                <span class="course-status in-progress">In Progress</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">UI/UX Design Masterclass</h3>
+                                <p class="dashboard-course-instructor">Instructor: Meera Iyer</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>38% Complete</span>
+                                        <span>3/8 Modules</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 38%"></div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Continue Learning</a>
+                                    <a href="404.html" class="btn btn-outline">Course Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-course-card completed section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_35.webp" alt="Course" loading="lazy">
+                                <span class="course-status completed">Completed</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">HTML & CSS Fundamentals</h3>
+                                <p class="dashboard-course-instructor">Instructor: Karthik Subramanian</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>100% Complete</span>
+                                        <span>Certificate Earned</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-outline">View Certificate</a>
+                                    <a href="404.html" class="btn btn-outline">Review Course</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates Panel -->
+                <div class="dashboard-panel" id="panel-certificates">
+                    <div class="panel-header">
+                        <h2 class="panel-title">My Certificates</h2>
+                        <p class="panel-subtitle">Your earned credentials and achievements.</p>
+                    </div>
+                    <div class="certificates-grid">
+                        <div class="certificate-card section-reveal" data-tilt>
+                            <div class="certificate-preview">
+                                <div class="certificate-badge-large">🏆</div>
+                                <h3 class="certificate-name">HTML & CSS Fundamentals</h3>
+                                <p class="certificate-id">ID: STK-2026-001234</p>
+                                <p class="certificate-date">Issued: May 10, 2026</p>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="404.html" class="btn btn-primary btn-small">Download PDF</a>
+                                <a href="404.html" class="btn btn-outline btn-small">Share</a>
+                            </div>
+                        </div>
+                        <div class="certificate-card section-reveal" data-tilt>
+                            <div class="certificate-preview">
+                                <div class="certificate-badge-large">🏆</div>
+                                <h3 class="certificate-name">JavaScript Essentials</h3>
+                                <p class="certificate-id">ID: STK-2026-001235</p>
+                                <p class="certificate-date">Issued: May 15, 2026</p>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="404.html" class="btn btn-primary btn-small">Download PDF</a>
+                                <a href="404.html" class="btn btn-outline btn-small">Share</a>
+                            </div>
+                        </div>
+                        <div class="certificate-card locked section-reveal" data-tilt>
+                            <div class="certificate-preview">
+                                <div class="certificate-badge-large">🔒</div>
+                                <h3 class="certificate-name">Full Stack Certification</h3>
+                                <p class="certificate-status">Complete all modules to unlock</p>
+                                <p class="certificate-progress">8/12 modules completed</p>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="404.html" class="btn btn-outline btn-small">Continue Course</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Panel -->
+                <div class="dashboard-panel" id="panel-analytics">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Learning Analytics</h2>
+                        <p class="panel-subtitle">Track your performance and learning patterns.</p>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="analytics-card section-reveal" data-tilt>
+                            <h3 class="analytics-title">Study Time Distribution</h3>
+                            <div class="analytics-chart donut-chart">
+                                <div class="donut-segment" style="--value: 35; --color: #64ffda">Development 35%</div>
+                                <div class="donut-segment" style="--value: 25; --color: #ccd6f6">Data Science 25%</div>
+                                <div class="donut-segment" style="--value: 20; --color: #8892b0">Design 20%</div>
+                                <div class="donut-segment" style="--value: 20; --color: #233554">Other 20%</div>
+                            </div>
+                        </div>
+                        <div class="analytics-card section-reveal" data-tilt>
+                            <h3 class="analytics-title">Monthly Progress</h3>
+                            <div class="analytics-chart bar-chart">
+                                <div class="bar-item"><span class="bar-label">Jan</span><div class="bar" style="height: 40%"></div></div>
+                                <div class="bar-item"><span class="bar-label">Feb</span><div class="bar" style="height: 55%"></div></div>
+                                <div class="bar-item"><span class="bar-label">Mar</span><div class="bar" style="height: 70%"></div></div>
+                                <div class="bar-item"><span class="bar-label">Apr</span><div class="bar" style="height: 60%"></div></div>
+                                <div class="bar-item"><span class="bar-label">May</span><div class="bar" style="height: 85%"></div></div>
+                            </div>
+                        </div>
+                        <div class="analytics-card full-width section-reveal" data-tilt>
+                            <h3 class="analytics-title">Skill Assessment</h3>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">HTML/CSS</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 92%"></div></div>
+                                    <span class="skill-value">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">JavaScript</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 78%"></div></div>
+                                    <span class="skill-value">78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">React</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 65%"></div></div>
+                                    <span class="skill-value">65%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Python</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 45%"></div></div>
+                                    <span class="skill-value">45%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">UI Design</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 58%"></div></div>
+                                    <span class="skill-value">58%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Panel -->
+                <div class="dashboard-panel" id="panel-profile">
+                    <div class="panel-header">
+                        <h2 class="panel-title">My Profile</h2>
+                        <p class="panel-subtitle">Manage your personal information and preferences.</p>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar-wrap">
+                                <img src="assets/img_36.webp" alt="Profile" class="profile-avatar-large" loading="lazy">
+                                <button class="avatar-edit">📷</button>
+                            </div>
+                            <div class="profile-header-info">
+                                <h3 class="profile-name" id="profile-name">Scholar</h3>
+                                <p class="profile-email" id="profile-email">scholar@stackly.com</p>
+                                <span class="profile-badge">Pro Member</span>
+                            </div>
+                        </div>
+                        <form class="profile-form" id="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name *</label>
+                                    <input type="text" class="form-input" value="Scholar" id="profile-fname" required>
+                                    <span class="form-error" id="error-profile-fname">Name can only contain alphabets</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name *</label>
+                                    <input type="text" class="form-input" value="User" id="profile-lname" required>
+                                    <span class="form-error" id="error-profile-lname">Name can only contain alphabets</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-input" value="scholar@stackly.com" id="profile-email-input" required>
+                                <span class="form-error" id="error-profile-email">Please enter a valid email address</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Mobile Number *</label>
+                                <div class="input-wrap mobile-input-wrap">
+                                    <span class="mobile-prefix">+91</span>
+                                    <input type="tel" class="form-input mobile-input" value="9876543210" maxlength="10" id="profile-mobile" required>
+                                </div>
+                                <span class="form-error" id="error-profile-mobile">Please enter a valid 10-digit mobile number</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-textarea" rows="4" placeholder="Tell us about yourself...">Passionate learner exploring web development and data science. Looking to transition into a tech career within the next 6 months.</textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-input" value="Salem, Tamil Nadu">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <div class="input-wrap mobile-input-wrap">
+                                        <span class="mobile-prefix">+91</span>
+                                        <input type="tel" class="form-input mobile-input" value="9876543210" maxlength="10">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Settings Panel -->
+                <div class="dashboard-panel" id="panel-settings">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Settings</h2>
+                        <p class="panel-subtitle">Customize your account and notification preferences.</p>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Notifications</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Email Notifications</span>
+                                    <span class="setting-desc">Receive course updates and announcements</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Push Notifications</span>
+                                    <span class="setting-desc">Get alerts on mobile and desktop</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Weekly Digest</span>
+                                    <span class="setting-desc">Summary of your learning progress</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Privacy</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Public Profile</span>
+                                    <span class="setting-desc">Allow others to see your achievements</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Show Certificates</span>
+                                    <span class="setting-desc">Display earned certificates on profile</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-card danger-zone">
+                            <h3 class="settings-card-title">Danger Zone</h3>
+                            <div class="danger-item">
+                                <div class="danger-info">
+                                    <span class="danger-name">Delete Account</span>
+                                    <span class="danger-desc">Permanently delete your account and all data</span>
+                                </div>
+                                <button class="btn btn-danger btn-small" onclick="if(confirm('Are you sure you want to delete your account? This action cannot be undone.')) { sessionStorage.removeItem('stacklyUserEmail'); sessionStorage.removeItem('stacklyUserRole'); window.location.href='index.html'; }">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

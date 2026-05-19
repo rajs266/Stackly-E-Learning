@@ -248,7 +248,7 @@
             // Skip on touch devices
             if (window.matchMedia('(pointer: coarse)').matches) return;
 
-            heroSection = document.querySelector('.hero-section');
+            var heroSection = document.querySelector('.hero-section');
             if (!heroSection) return;
 
             heroSection.addEventListener('mousemove', function (e) {
@@ -373,12 +373,27 @@
                 const subject = document.getElementById('contact-subject');
                 const message = document.getElementById('contact-message');
 
+                const mobile = document.getElementById('contact-mobile');
+
                 // Name validation
                 if (!name || !name.value.trim()) {
                     if (name) FormValidation.showError(name, 'error-name');
                     isValid = false;
+                } else if (!/^[a-zA-Z\s]+$/.test(name.value)) {
+                    if (name) FormValidation.showError(name, 'error-name', 'Name can only contains alphabets');
+                    isValid = false;
                 } else {
                     if (name) FormValidation.hideError(name, 'error-name');
+                }
+
+                // Mobile validation
+                if (mobile && mobile.value.trim() !== '') {
+                    if (!/^\d{10}$/.test(mobile.value)) {
+                        FormValidation.showError(mobile, 'error-mobile', 'Please enter a valid 10-digit mobile number');
+                        isValid = false;
+                    } else {
+                        FormValidation.hideError(mobile, 'error-mobile');
+                    }
                 }
 
                 // Email validation
@@ -460,9 +475,18 @@
                 }
 
                 if (isValid) {
-                    // Store email in sessionStorage and redirect
+                    const roleInput = document.querySelector('input[name="role"]:checked');
+                    const userRole = roleInput ? roleInput.value : 'student';
+                    
+                    // Store email and role in sessionStorage and redirect
                     sessionStorage.setItem('stacklyUserEmail', email.value);
-                    window.location.href = 'dashboard.html';
+                    sessionStorage.setItem('stacklyUserRole', userRole);
+                    
+                    if (userRole === 'instructor') {
+                        window.location.href = 'dashboard-instructor.html';
+                    } else {
+                        window.location.href = 'dashboard-student.html';
+                    }
                 }
             });
 
@@ -550,12 +574,14 @@
                 const confirm = document.getElementById('signup-confirm');
                 const terms = document.querySelector('input[name="terms"]');
 
+                const mobile = document.getElementById('signup-mobile');
+
                 // First name
                 if (!firstname || !firstname.value.trim()) {
                     if (firstname) FormValidation.showError(firstname, 'error-signup-firstname');
                     isValid = false;
                 } else if (!/^[a-zA-Z\s]+$/.test(firstname.value)) {
-                    if (firstname) FormValidation.showError(firstname, 'error-signup-firstname', 'Name can only contain letters and spaces');
+                    if (firstname) FormValidation.showError(firstname, 'error-signup-firstname', 'Name can only contains alphabets');
                     isValid = false;
                 } else {
                     if (firstname) FormValidation.hideError(firstname, 'error-signup-firstname');
@@ -566,10 +592,21 @@
                     if (lastname) FormValidation.showError(lastname, 'error-signup-lastname');
                     isValid = false;
                 } else if (!/^[a-zA-Z\s]+$/.test(lastname.value)) {
-                    if (lastname) FormValidation.showError(lastname, 'error-signup-lastname', 'Name can only contain letters and spaces');
+                    if (lastname) FormValidation.showError(lastname, 'error-signup-lastname', 'Name can only contains alphabets');
                     isValid = false;
                 } else {
                     if (lastname) FormValidation.hideError(lastname, 'error-signup-lastname');
+                }
+
+                // Mobile
+                if (!mobile || !mobile.value.trim()) {
+                    if (mobile) FormValidation.showError(mobile, 'error-signup-mobile');
+                    isValid = false;
+                } else if (!/^\d{10}$/.test(mobile.value)) {
+                    if (mobile) FormValidation.showError(mobile, 'error-signup-mobile', 'Please enter a valid 10-digit mobile number');
+                    isValid = false;
+                } else {
+                    if (mobile) FormValidation.hideError(mobile, 'error-signup-mobile');
                 }
 
                 // Email
@@ -646,47 +683,86 @@
         },
 
         initProfileForm: function () {
-            const profileForm = document.getElementById('profile-form');
-            if (profileForm) {
-                profileForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    let isValid = true;
+            const forms = [
+                { id: 'profile-form', prefix: 'profile' },
+                { id: 'instructor-profile-form', prefix: 'instructor' }
+            ];
 
-                    const fname = document.getElementById('profile-fname');
-                    const lname = document.getElementById('profile-lname');
+            forms.forEach(function(f) {
+                const profileForm = document.getElementById(f.id);
+                if (profileForm) {
+                    profileForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        let isValid = true;
 
-                    // Simple error handling
-                    if (fname && !/^[a-zA-Z\s]+$/.test(fname.value)) {
-                        FormValidation.showError(fname, 'error-profile-fname', 'First name can only contain alphabets.');
-                        isValid = false;
-                    } else if (fname) {
-                        FormValidation.hideError(fname, 'error-profile-fname');
-                    }
+                        const fname = document.getElementById(f.prefix + '-fname');
+                        const lname = document.getElementById(f.prefix + '-lname');
+                        const email = document.getElementById(f.prefix === 'profile' ? 'profile-email-input' : f.prefix + '-email');
+                        const mobile = document.getElementById(f.prefix + '-mobile');
 
-                    if (lname && !/^[a-zA-Z\s]+$/.test(lname.value)) {
-                        FormValidation.showError(lname, 'error-profile-lname', 'Last name can only contain alphabets.');
-                        isValid = false;
-                    } else if (lname) {
-                        FormValidation.hideError(lname, 'error-profile-lname');
-                    }
-
-                    if (isValid) {
-                        const btn = profileForm.querySelector('button[type="submit"]');
-                        if (btn) {
-                            const originalText = btn.textContent;
-                            btn.textContent = 'Saved!';
-                            btn.style.backgroundColor = '#10b981';
-                            btn.style.color = 'white';
-
-                            setTimeout(function () {
-                                btn.textContent = originalText;
-                                btn.style.backgroundColor = '';
-                                btn.style.color = '';
-                            }, 2000);
+                        // First name
+                        if (!fname || !fname.value.trim()) {
+                            if (fname) FormValidation.showError(fname, 'error-' + f.prefix + '-fname');
+                            isValid = false;
+                        } else if (!/^[a-zA-Z\s]+$/.test(fname.value)) {
+                            if (fname) FormValidation.showError(fname, 'error-' + f.prefix + '-fname', 'Name can only contains alphabets');
+                            isValid = false;
+                        } else {
+                            if (fname) FormValidation.hideError(fname, 'error-' + f.prefix + '-fname');
                         }
-                    }
-                });
-            }
+
+                        // Last name
+                        if (!lname || !lname.value.trim()) {
+                            if (lname) FormValidation.showError(lname, 'error-' + f.prefix + '-lname');
+                            isValid = false;
+                        } else if (!/^[a-zA-Z\s]+$/.test(lname.value)) {
+                            if (lname) FormValidation.showError(lname, 'error-' + f.prefix + '-lname', 'Name can only contains alphabets');
+                            isValid = false;
+                        } else {
+                            if (lname) FormValidation.hideError(lname, 'error-' + f.prefix + '-lname');
+                        }
+                        
+                        // Email
+                        const emailErrorId = f.prefix === 'profile' ? 'error-profile-email' : 'error-instructor-email';
+                        if (!email || !email.value.trim()) {
+                            if (email) FormValidation.showError(email, emailErrorId);
+                            isValid = false;
+                        } else if (!FormValidation.validateEmail(email.value)) {
+                            if (email) FormValidation.showError(email, emailErrorId, 'Please enter a valid email address');
+                            isValid = false;
+                        } else {
+                            if (email) FormValidation.hideError(email, emailErrorId);
+                        }
+
+                        // Mobile
+                        if (!mobile || !mobile.value.trim()) {
+                            if (mobile) FormValidation.showError(mobile, 'error-' + f.prefix + '-mobile');
+                            isValid = false;
+                        } else if (!/^\d{10}$/.test(mobile.value)) {
+                            if (mobile) FormValidation.showError(mobile, 'error-' + f.prefix + '-mobile', 'Please enter a valid 10-digit mobile number');
+                            isValid = false;
+                        } else {
+                            if (mobile) FormValidation.hideError(mobile, 'error-' + f.prefix + '-mobile');
+                        }
+
+                        if (isValid) {
+                            const btn = profileForm.querySelector('button[type="submit"]');
+                            if (btn) {
+                                const originalText = btn.textContent;
+                                btn.textContent = 'Saved!';
+                                btn.style.backgroundColor = '#10b981';
+                                btn.style.color = 'white';
+
+                                setTimeout(function () {
+                                    btn.textContent = originalText;
+                                    btn.style.backgroundColor = '';
+                                    btn.style.color = '';
+                                }, 2000);
+                            }
+                        }
+                    });
+                }
+            });
         },
 
         loadUserData: function () {
@@ -780,7 +856,10 @@
                     // On mobile, close sidebar after selection
                     if (window.innerWidth < 1024) {
                         const sidebar = document.getElementById('dashboard-sidebar');
-                        if (sidebar) sidebar.classList.remove('active');
+                        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+                        if (sidebar) { sidebar.classList.remove('active'); sidebar.classList.remove('sidebar-open'); }
+                        if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+                        document.body.classList.remove('sidebar-open-body');
                     }
                 });
             });
@@ -801,17 +880,57 @@
             const sidebar = document.getElementById('dashboard-sidebar');
             const closeBtn = document.getElementById('sidebar-close');
 
-            if (toggleBtn && sidebar) {
+            // Create overlay backdrop
+            let overlay = document.querySelector('.sidebar-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'sidebar-overlay';
+                document.body.appendChild(overlay);
+            }
+
+            function openSidebar() {
+                if (!sidebar) return;
+                sidebar.classList.add('sidebar-open');
+                overlay.classList.add('active');
+                document.body.classList.add('sidebar-open-body');
+            }
+
+            function closeSidebar() {
+                if (!sidebar) return;
+                sidebar.classList.remove('sidebar-open');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open-body');
+            }
+
+            if (toggleBtn) {
                 toggleBtn.addEventListener('click', function () {
-                    sidebar.classList.toggle('active');
+                    if (sidebar.classList.contains('sidebar-open')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
                 });
             }
 
-            if (closeBtn && sidebar) {
-                closeBtn.addEventListener('click', function () {
-                    sidebar.classList.remove('active');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeSidebar);
+            }
+
+            overlay.addEventListener('click', closeSidebar);
+
+            // Close sidebar on link click (mobile)
+            if (sidebar) {
+                sidebar.querySelectorAll('.sidebar-link').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 1024) closeSidebar();
+                    });
                 });
             }
+
+            // Close on resize to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) closeSidebar();
+            });
         },
 
         initLogout: function () {
@@ -999,22 +1118,40 @@
 
     const FallbackRouting = {
         init: function () {
-            // Intercept clicks on buttons/links without valid hrefs
             document.addEventListener('click', function (e) {
                 const target = e.target.closest('a, button');
                 if (!target) return;
 
-                // Check if it's a button or link with # href or javascript:void
                 const href = target.getAttribute('href');
 
-                if (target.tagName === 'BUTTON' && !target.type && !target.closest('form')) {
-                    // Orphan button - route to 404
-                    e.preventDefault();
-                    window.location.href = '404.html';
-                    return;
+                // Skip buttons that have a data-panel (sidebar nav), event handlers,
+                // onclick attributes, or are inside a dashboard/sidebar context
+                if (target.tagName === 'BUTTON') {
+                    if (
+                        target.getAttribute('data-panel') ||
+                        target.getAttribute('onclick') ||
+                        target.closest('.dashboard-sidebar') ||
+                        target.closest('.dashboard-header') ||
+                        target.closest('.dashboard-content') ||
+                        target.closest('[data-panel]') ||
+                        target.id === 'sidebar-toggle' ||
+                        target.id === 'sidebar-close' ||
+                        target.id === 'logout-btn' ||
+                        target.id === 'header-logout' ||
+                        target.classList.contains('sidebar-toggle') ||
+                        target.classList.contains('sidebar-close') ||
+                        target.classList.contains('action-btn') ||
+                        target.classList.contains('password-toggle') ||
+                        target.closest('form') ||
+                        target.type === 'submit' ||
+                        target.type === 'button' ||
+                        target.type === 'reset'
+                    ) {
+                        return;
+                    }
                 }
 
-                if (href === '#' || href === 'javascript:void(0)' || href === 'javascript:void(0);') {
+                if (href === 'javascript:void(0)' || href === 'javascript:void(0);') {
                     e.preventDefault();
                     window.location.href = '404.html';
                 }

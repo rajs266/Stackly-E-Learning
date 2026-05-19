@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Stackly | Create Your Account</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body class="auth-page">
     <!-- Stage Loader -->
@@ -28,7 +29,6 @@
             <div class="auth-visual-content">
                 <a href="index.html" class="auth-logo-link">
                     <img src="assets/logo.webp" alt="Stackly" class="auth-logo" width="60">
-                    
                 </a>
                 <h2 class="auth-visual-title">Start Your Learning Journey Today</h2>
                 <p class="auth-visual-text">Join 50,000+ learners worldwide. Get access to 200+ courses, expert mentorship, and career-changing opportunities.</p>
@@ -66,6 +66,30 @@
                 </div>
 
                 <form class="auth-form" id="signup-form" novalidate>
+                    <!-- Role Selection -->
+                    <div class="form-group">
+                        <label class="form-label">I want to join as *</label>
+                        <div class="role-selector">
+                            <label class="role-option">
+                                <input type="radio" name="role" value="student" class="role-input" checked>
+                                <span class="role-card">
+                                    <span class="role-icon">🎓</span>
+                                    <span class="role-name">Student</span>
+                                    <span class="role-desc">Learn and grow</span>
+                                </span>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="instructor" class="role-input">
+                                <span class="role-card">
+                                    <span class="role-icon">👨‍🏫</span>
+                                    <span class="role-name">Instructor</span>
+                                    <span class="role-desc">Teach and inspire</span>
+                                </span>
+                            </label>
+                        </div>
+                        <span class="form-error" id="error-signup-role">Please select a role</span>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="signup-firstname" class="form-label">First Name *</label>
@@ -95,11 +119,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="signup-mobile" class="form-label">Mobile Number</label>
-                        <div class="input-wrap">
+                        <label for="signup-mobile" class="form-label">Mobile Number *</label>
+                        <div class="input-wrap mobile-input-wrap">
                             <span class="input-icon">📱</span>
-                            <input type="tel" id="signup-mobile" name="mobile" class="form-input" placeholder="+91 9876543210">
+                            <span class="mobile-prefix">+91</span>
+                            <input type="tel" id="signup-mobile" name="mobile" class="form-input mobile-input" placeholder="9876543210" required maxlength="10">
                         </div>
+                        <span class="form-error" id="error-signup-mobile">Please enter a valid 10-digit mobile number</span>
                     </div>
 
                     <div class="form-row">
@@ -182,6 +208,18 @@
                 <div class="auth-footer">
                     <p>By creating an account, you agree to our <a href="404.html">Terms of Service</a> and <a href="404.html">Privacy Policy</a></p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="success-icon">🎉</div>
+            <h2 class="success-title">Account Created Successfully!</h2>
+            <p class="success-message">Welcome to Stackly! Your account has been created. Redirecting you to sign in...</p>
+            <div class="success-loader">
+                <div class="success-loader-bar"></div>
             </div>
         </div>
     </div>

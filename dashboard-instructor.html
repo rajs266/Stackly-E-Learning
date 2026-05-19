@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard - Stackly</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="dashboard-page">
+    <!-- Stage Loader -->
+    <div id="stage-loader" class="stage-loader">
+        <div class="loader-content">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="loader-logo" width="100">
+            <div class="loader-spinner">
+                <svg viewBox="0 0 100 100" class="spinner-svg">
+                    <circle cx="50" cy="50" r="40" class="spinner-track"></circle>
+                    <circle cx="50" cy="50" r="40" class="spinner-active"></circle>
+                </svg>
+            </div>
+            <p class="loader-text">Loading Instructor Dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo-link">
+                    <img src="assets/logo.webp" alt="Stackly" class="sidebar-logo" width="40">
+                </a>
+                <button class="sidebar-close" id="sidebar-close" aria-label="Close Sidebar">✕</button>
+            </div>
+
+            <div class="sidebar-user">
+                <img src="assets/img_27.webp" alt="User" class="sidebar-avatar" id="user-avatar" loading="lazy">
+                <div class="sidebar-user-info">
+                    <span class="sidebar-user-name" id="user-name">Instructor</span>
+                    <span class="sidebar-user-email" id="user-email">Loading...</span>
+                    <span class="sidebar-user-role instructor" id="user-role-badge">Instructor</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" id="instructor-nav">
+                <div class="sidebar-section">
+                    <span class="sidebar-section-title">Instructor</span>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#instructor-overview" class="sidebar-link active" data-panel="instructor-overview">
+                                <span class="sidebar-icon">📊</span>
+                                <span class="sidebar-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#my-courses" class="sidebar-link" data-panel="my-courses">
+                                <span class="sidebar-icon">📚</span>
+                                <span class="sidebar-text">My Courses</span>
+                                <span class="sidebar-badge">6</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#students" class="sidebar-link" data-panel="students">
+                                <span class="sidebar-icon">👥</span>
+                                <span class="sidebar-text">Students</span>
+                                <span class="sidebar-badge">248</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#earnings" class="sidebar-link" data-panel="earnings">
+                                <span class="sidebar-icon">💰</span>
+                                <span class="sidebar-text">Earnings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reviews" class="sidebar-link" data-panel="reviews">
+                                <span class="sidebar-icon">⭐</span>
+                                <span class="sidebar-text">Reviews</span>
+                                <span class="sidebar-badge">89</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#create-course" class="sidebar-link" data-panel="create-course">
+                                <span class="sidebar-icon">➕</span>
+                                <span class="sidebar-text">Create Course</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <span class="sidebar-section-title">Account</span>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#instructor-profile" class="sidebar-link" data-panel="instructor-profile">
+                                <span class="sidebar-icon">👤</span>
+                                <span class="sidebar-text">Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#instructor-settings" class="sidebar-link" data-panel="instructor-settings">
+                                <span class="sidebar-icon">⚙️</span>
+                                <span class="sidebar-text">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="sidebar-link" id="instructor-logout-btn">
+                                <span class="sidebar-icon">🚪</span>
+                                <span class="sidebar-text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-progress" id="instructor-progress">
+                    <span class="progress-label">Monthly Earnings</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 68%"></div>
+                    </div>
+                    <span class="progress-value">₹68,000 / ₹1,00,000</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Top Header -->
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="dashboard-welcome" id="dashboard-welcome">
+                    <h1 class="welcome-title">Welcome Back, Instructor!</h1>
+                    <p class="welcome-email" id="welcome-email">instructor@stackly.com</p>
+                </div>
+
+                <div class="dashboard-actions">
+                    <button class="action-btn" aria-label="Notifications" onclick="window.location.href='404.html'">
+                        <span class="action-icon">🔔</span>
+                        <span class="action-badge">3</span>
+                    </button>
+                    <button class="action-btn" aria-label="Messages" onclick="window.location.href='404.html'">
+                        <span class="action-icon">💬</span>
+                        <span class="action-badge">5</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <img src="assets/img_28.webp" alt="User" class="user-dropdown-avatar" loading="lazy">
+                        <div class="dropdown-menu user-menu">
+                            <a href="#instructor-profile" onclick="document.querySelector('.sidebar-link[data-panel=\'instructor-profile\']').click(); return false;"> 👤 My Account</a>
+                            <a href="#instructor-settings" onclick="document.querySelector('.sidebar-link[data-panel=\'instructor-settings\']').click(); return false;"> ⚙️ Settings</a>
+                            <a href="index.html" id="header-logout"> 🚪 Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Panels -->
+            <div class="dashboard-content" id="dashboard-content">
+
+                <!-- Instructor Overview Panel -->
+                <div class="dashboard-panel active" id="panel-instructor-overview">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Instructor Dashboard</h2>
+                        <p class="panel-subtitle">Track your teaching performance and earnings.</p>
+                    </div>
+
+                    <!-- Stats Grid - FIXED: Added overflow handling -->
+                    <div class="stats-grid">
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">📚</div>
+                            <div class="stat-info">
+                                <span class="stat-value">6</span>
+                                <span class="stat-label">Active Courses</span>
+                            </div>
+                            <div class="stat-trend up">↑ 20%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <span class="stat-value">248</span>
+                                <span class="stat-label">Total Students</span>
+                            </div>
+                            <div class="stat-trend up">↑ 15%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <span class="stat-value">₹68K</span>
+                                <span class="stat-label">This Month</span>
+                            </div>
+                            <div class="stat-trend up">↑ 12%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info">
+                                <span class="stat-value">4.8</span>
+                                <span class="stat-label">Avg Rating</span>
+                            </div>
+                            <div class="stat-trend up">↑ 0.2</div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid-2">
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Enrollments</h3>
+                                <a href="#students" class="card-link" onclick="document.querySelector('.sidebar-link[data-panel=\'students\']').click(); return false;">View All →</a>
+                            </div>
+                            <div class="course-progress-list">
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-thumb">
+                                        <img src="assets/img_29.webp" alt="Student" loading="lazy">
+                                    </div>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Rahul Sharma</h4>
+                                        <p class="course-progress-meta">Enrolled in Full Stack Web Dev • 2 hours ago</p>
+                                    </div>
+                                    <span class="status-badge active">New</span>
+                                </div>
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-thumb">
+                                        <img src="assets/img_30.webp" alt="Student" loading="lazy">
+                                    </div>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Priya Venkatesh</h4>
+                                        <p class="course-progress-meta">Enrolled in Data Science • 5 hours ago</p>
+                                    </div>
+                                    <span class="status-badge active">New</span>
+                                </div>
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-thumb">
+                                        <img src="assets/img_31.webp" alt="Student" loading="lazy">
+                                    </div>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Arjun Kumar</h4>
+                                        <p class="course-progress-meta">Completed UI/UX Course • 1 day ago</p>
+                                    </div>
+                                    <span class="status-badge completed">Done</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Top Performing Courses</h3>
+                                <a href="#earnings" class="card-link" onclick="document.querySelector('.sidebar-link[data-panel=\'earnings\']').click(); return false;">Analytics →</a>
+                            </div>
+                            <div class="achievements-list">
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">🥇</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Full Stack Web Development</h4>
+                                        <p class="achievement-desc">142 students • ₹2,45,000 revenue</p>
+                                        <span class="achievement-date">4.9 ★ rating</span>
+                                    </div>
+                                </div>
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">🥈</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Data Science & ML</h4>
+                                        <p class="achievement-desc">68 students • ₹1,89,000 revenue</p>
+                                        <span class="achievement-date">4.7 ★ rating</span>
+                                    </div>
+                                </div>
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">🥉</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">UI/UX Design Masterclass</h4>
+                                        <p class="achievement-desc">38 students • ₹95,000 revenue</p>
+                                        <span class="achievement-date">4.8 ★ rating</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">Monthly Revenue</h3>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="legend-dot" style="background: #8b5cf6"></span>Course Sales</span>
+                                <span class="legend-item"><span class="legend-dot" style="background: #ccd6f6"></span>Subscriptions</span>
+                            </div>
+                        </div>
+                        <div class="activity-chart" id="revenue-chart">
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 45%">
+                                    <div class="chart-bar-fill study" style="height: 60%"></div>
+                                </div>
+                                <span class="chart-label">Jan</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 60%">
+                                    <div class="chart-bar-fill study" style="height: 70%"></div>
+                                </div>
+                                <span class="chart-label">Feb</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 55%">
+                                    <div class="chart-bar-fill study" style="height: 65%"></div>
+                                </div>
+                                <span class="chart-label">Mar</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 75%">
+                                    <div class="chart-bar-fill study" style="height: 80%"></div>
+                                </div>
+                                <span class="chart-label">Apr</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 85%">
+                                    <div class="chart-bar-fill study" style="height: 90%"></div>
+                                </div>
+                                <span class="chart-label">May</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="height: 68%">
+                                    <div class="chart-bar-fill study" style="height: 75%"></div>
+                                </div>
+                                <span class="chart-label">Jun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid-2" style="margin-top: 2rem;">
+                        <!-- Upcoming Live Classes -->
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Upcoming Live Classes</h3>
+                                <a href="404.html" class="card-link">View All →</a>
+                            </div>
+                            <div class="course-progress-list">
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">React Hooks Deep Dive</h4>
+                                        <p class="course-progress-meta">Full Stack Web Dev • Today, 6:00 PM</p>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-primary">Start</a>
+                                </div>
+                                <div class="course-progress-item section-reveal" data-tilt>
+                                    <div class="course-progress-info">
+                                        <h4 class="course-progress-title">Python Data Structures</h4>
+                                        <p class="course-progress-meta">Data Science • Tomorrow, 2:00 PM</p>
+                                    </div>
+                                    <a href="404.html" class="btn btn-small btn-outline">Prepare</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Q&A Activity -->
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Q&A Activity</h3>
+                                <a href="404.html" class="card-link">Answer All →</a>
+                            </div>
+                            <div class="achievements-list">
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">❓</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Error in Node.js setup</h4>
+                                        <p class="achievement-desc">Rahul Sharma • Unanswered</p>
+                                    </div>
+                                </div>
+                                <div class="achievement-item section-reveal" data-tilt>
+                                    <div class="achievement-badge">❓</div>
+                                    <div class="achievement-info">
+                                        <h4 class="achievement-title">Understanding flexbox wrap</h4>
+                                        <p class="achievement-desc">Priya Venkatesh • Unanswered</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Courses (Instructor) Panel -->
+                <div class="dashboard-panel" id="panel-my-courses">
+                    <div class="panel-header">
+                        <h2 class="panel-title">My Courses</h2>
+                        <p class="panel-subtitle">Manage and track all your published courses.</p>
+                    </div>
+                    <div class="dashboard-courses-grid">
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_32.webp" alt="Course" loading="lazy">
+                                <span class="course-status in-progress">Published</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">Full Stack Web Development Bootcamp</h3>
+                                <p class="dashboard-course-instructor">142 Students Enrolled</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>₹2,45,000 Revenue</span>
+                                        <span>4.9 ★ Rating</span>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Edit Course</a>
+                                    <a href="404.html" class="btn btn-outline">Analytics</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_33.webp" alt="Course" loading="lazy">
+                                <span class="course-status in-progress">Published</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">Data Science & Machine Learning</h3>
+                                <p class="dashboard-course-instructor">68 Students Enrolled</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>₹1,89,000 Revenue</span>
+                                        <span>4.7 ★ Rating</span>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Edit Course</a>
+                                    <a href="404.html" class="btn btn-outline">Analytics</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_34.webp" alt="Course" loading="lazy">
+                                <span class="course-status in-progress">Published</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">UI/UX Design Masterclass</h3>
+                                <p class="dashboard-course-instructor">38 Students Enrolled</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>₹95,000 Revenue</span>
+                                        <span>4.8 ★ Rating</span>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Edit Course</a>
+                                    <a href="404.html" class="btn btn-outline">Analytics</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-course-card section-reveal" data-tilt>
+                            <div class="dashboard-course-image">
+                                <img src="assets/img_35.webp" alt="Course" loading="lazy">
+                                <span class="course-status completed">Draft</span>
+                            </div>
+                            <div class="dashboard-course-body">
+                                <h3 class="dashboard-course-title">Advanced React Patterns</h3>
+                                <p class="dashboard-course-instructor">Not published yet</p>
+                                <div class="dashboard-course-progress">
+                                    <div class="progress-info">
+                                        <span>3/12 Modules Ready</span>
+                                        <span>Draft</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-course-actions">
+                                    <a href="404.html" class="btn btn-primary">Continue Editing</a>
+                                    <a href="404.html" class="btn btn-outline">Preview</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Students Panel -->
+                <div class="dashboard-panel" id="panel-students">
+                    <div class="panel-header">
+                        <h2 class="panel-title">My Students</h2>
+                        <p class="panel-subtitle">View and manage all your enrolled students.</p>
+                    </div>
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">All Students (248)</h3>
+                            <div class="catalog-search">
+                                <input type="text" class="search-input" placeholder="Search students...">
+                                <button class="search-btn" onclick="window.location.href='404.html'">🔍</button>
+                            </div>
+                        </div>
+                        <div class="students-table-wrap">
+                            <table class="students-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Course</th>
+                                        <th>Progress</th>
+                                        <th>Last Active</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="student-cell">
+                                                <img src="assets/img_29.webp" alt="Student" class="student-avatar-small">
+                                                <span>Rahul Sharma</span>
+                                            </div>
+                                        </td>
+                                        <td>Full Stack Web Dev</td>
+                                        <td>
+                                            <div class="progress-bar-small">
+                                                <div class="progress-fill-small" style="width: 67%"></div>
+                                            </div>
+                                            <span>67%</span>
+                                        </td>
+                                        <td>2 hours ago</td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="student-cell">
+                                                <img src="assets/img_30.webp" alt="Student" class="student-avatar-small">
+                                                <span>Priya Venkatesh</span>
+                                            </div>
+                                        </td>
+                                        <td>Data Science</td>
+                                        <td>
+                                            <div class="progress-bar-small">
+                                                <div class="progress-fill-small" style="width: 45%"></div>
+                                            </div>
+                                            <span>45%</span>
+                                        </td>
+                                        <td>5 hours ago</td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="student-cell">
+                                                <img src="assets/img_31.webp" alt="Student" class="student-avatar-small">
+                                                <span>Arjun Kumar</span>
+                                            </div>
+                                        </td>
+                                        <td>UI/UX Design</td>
+                                        <td>
+                                            <div class="progress-bar-small">
+                                                <div class="progress-fill-small" style="width: 100%"></div>
+                                            </div>
+                                            <span>100%</span>
+                                        </td>
+                                        <td>1 day ago</td>
+                                        <td><span class="status-badge completed">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings Panel -->
+                <div class="dashboard-panel" id="panel-earnings">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Earnings</h2>
+                        <p class="panel-subtitle">Track your revenue and payment history.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <span class="stat-value">₹8,45,000</span>
+                                <span class="stat-label">Total Earnings</span>
+                            </div>
+                            <div class="stat-trend up">↑ 25%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-info">
+                                <span class="stat-value">₹68,000</span>
+                                <span class="stat-label">This Month</span>
+                            </div>
+                            <div class="stat-trend up">↑ 12%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <span class="stat-value">248</span>
+                                <span class="stat-label">Total Sales</span>
+                            </div>
+                            <div class="stat-trend up">↑ 18%</div>
+                        </div>
+                        <div class="stat-card section-reveal" data-tilt>
+                            <div class="stat-icon">💵</div>
+                            <div class="stat-info">
+                                <span class="stat-value">₹3,400</span>
+                                <span class="stat-label">Avg per Sale</span>
+                            </div>
+                            <div class="stat-trend up">↑ 5%</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <div class="card-header">
+                            <h3 class="card-title">Payment History</h3>
+                        </div>
+                        <div class="students-table-wrap">
+                            <table class="students-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>May 15, 2026</td>
+                                        <td>Course Sales - Full Stack Web Dev</td>
+                                        <td class="earning-amount">+₹12,999</td>
+                                        <td><span class="status-badge active">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>May 14, 2026</td>
+                                        <td>Course Sales - Data Science</td>
+                                        <td class="earning-amount">+₹14,999</td>
+                                        <td><span class="status-badge active">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>May 12, 2026</td>
+                                        <td>Subscription Revenue</td>
+                                        <td class="earning-amount">+₹8,500</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Panel - FIXED: Review stars size and profile pic visibility -->
+                <div class="dashboard-panel" id="panel-reviews">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Student Reviews</h2>
+                        <p class="panel-subtitle">Feedback from your students.</p>
+                    </div>
+                    <div class="dashboard-grid-2">
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Reviews</h3>
+                                <a href="404.html" class="card-link">View All →</a>
+                            </div>
+                            <div class="reviews-list">
+                                <div class="review-item section-reveal" data-tilt>
+                                    <div class="review-header">
+                                        <div class="review-student">
+                                            <img src="assets/img_29.webp" alt="Rahul Sharma" class="review-avatar">
+                                            <div class="review-student-info">
+                                                <h4 class="review-student-name">Rahul Sharma</h4>
+                                                <div class="review-stars">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">2 days ago</span>
+                                    </div>
+                                    <p class="review-text">"Best web development course I've ever taken! The instructor explains complex concepts so clearly."</p>
+                                    <span class="review-course-tag">Full Stack Web Dev</span>
+                                </div>
+                                <div class="review-item section-reveal" data-tilt>
+                                    <div class="review-header">
+                                        <div class="review-student">
+                                            <img src="assets/img_30.webp" alt="Priya Venkatesh" class="review-avatar">
+                                            <div class="review-student-info">
+                                                <h4 class="review-student-name">Priya Venkatesh</h4>
+                                                <div class="review-stars">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">1 week ago</span>
+                                    </div>
+                                    <p class="review-text">"Amazing data science content. The real-world projects were incredibly helpful for my career."</p>
+                                    <span class="review-course-tag">Data Science</span>
+                                </div>
+                                <div class="review-item section-reveal" data-tilt>
+                                    <div class="review-header">
+                                        <div class="review-student">
+                                            <img src="assets/img_31.webp" alt="Arjun Kumar" class="review-avatar">
+                                            <div class="review-student-info">
+                                                <h4 class="review-student-name">Arjun Kumar</h4>
+                                                <div class="review-stars">★★★★☆</div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">2 weeks ago</span>
+                                    </div>
+                                    <p class="review-text">"Great UI/UX course. Would love more advanced topics in the next update."</p>
+                                    <span class="review-course-tag">UI/UX Design</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-card section-reveal" data-tilt>
+                            <div class="card-header">
+                                <h3 class="card-title">Rating Breakdown</h3>
+                            </div>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">5 Stars</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 72%"></div></div>
+                                    <span class="skill-value">72%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">4 Stars</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 20%"></div></div>
+                                    <span class="skill-value">20%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">3 Stars</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 6%"></div></div>
+                                    <span class="skill-value">6%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">2 Stars</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 1%"></div></div>
+                                    <span class="skill-value">1%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">1 Star</span>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 1%"></div></div>
+                                    <span class="skill-value">1%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Create Course Panel -->
+                <div class="dashboard-panel" id="panel-create-course">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Create New Course</h2>
+                        <p class="panel-subtitle">Build and publish your next course.</p>
+                    </div>
+                    <div class="dashboard-card full-width section-reveal" data-tilt>
+                        <form class="profile-form" id="create-course-form">
+                            <div class="form-group">
+                                <label class="form-label">Course Title *</label>
+                                <input type="text" class="form-input" placeholder="Enter course title" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Category *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select category</option>
+                                        <option value="development">Web Development</option>
+                                        <option value="data">Data Science</option>
+                                        <option value="security">Cybersecurity</option>
+                                        <option value="cloud">Cloud Computing</option>
+                                        <option value="design">UI/UX Design</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Level *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select level</option>
+                                        <option value="beginner">Beginner</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="advanced">Advanced</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Course Description *</label>
+                                <textarea class="form-textarea" rows="4" placeholder="Describe your course..." required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Price (₹) *</label>
+                                    <input type="number" class="form-input" placeholder="Enter price" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Duration (Weeks) *</label>
+                                    <input type="number" class="form-input" placeholder="Enter duration" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Course Thumbnail</label>
+                                <div class="file-upload">
+                                    <input type="file" class="file-input" accept="image/*">
+                                    <span class="file-label">📁 Drop image here or click to upload</span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Course</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Instructor Profile Panel -->
+                <div class="dashboard-panel" id="panel-instructor-profile">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Instructor Profile</h2>
+                        <p class="panel-subtitle">Manage your instructor profile and credentials.</p>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar-wrap">
+                                <img src="assets/img_36.webp" alt="Profile" class="profile-avatar-large" loading="lazy">
+                                <button class="avatar-edit">📷</button>
+                            </div>
+                            <div class="profile-header-info">
+                                <h3 class="profile-name" id="instructor-profile-name">Instructor</h3>
+                                <p class="profile-email" id="instructor-profile-email">instructor@stackly.com</p>
+                                <span class="profile-badge">Verified Instructor</span>
+                            </div>
+                        </div>
+                        <form class="profile-form" id="instructor-profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name *</label>
+                                    <input type="text" class="form-input" value="Instructor" id="instructor-fname" required>
+                                    <span class="form-error" id="error-instructor-fname">Name can only contain alphabets</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name *</label>
+                                    <input type="text" class="form-input" value="Name" id="instructor-lname" required>
+                                    <span class="form-error" id="error-instructor-lname">Name can only contain alphabets</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-input" value="instructor@stackly.com" id="instructor-email" required>
+                                <span class="form-error" id="error-instructor-email">Please enter a valid email address</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Mobile Number *</label>
+                                <div class="input-wrap mobile-input-wrap">
+                                    <span class="mobile-prefix">+91</span>
+                                    <input type="tel" class="form-input mobile-input" value="9876543210" maxlength="10" id="instructor-mobile" required>
+                                </div>
+                                <span class="form-error" id="error-instructor-mobile">Please enter a valid 10-digit mobile number</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-textarea" rows="4" placeholder="Tell us about yourself...">Senior Software Engineer with 10+ years of experience in full-stack development. Passionate about teaching and helping students build real-world skills.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Expertise</label>
+                                <input type="text" class="form-input" value="Web Development, React, Node.js, Python">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-input" value="Salem, Tamil Nadu">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Experience (Years)</label>
+                                    <input type="number" class="form-input" value="10">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Instructor Settings Panel - FIXED: Edit buttons redirect to 404.html -->
+                <div class="dashboard-panel" id="panel-instructor-settings">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Instructor Settings</h2>
+                        <p class="panel-subtitle">Customize your instructor account preferences.</p>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Notifications</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">New Enrollment Alerts</span>
+                                    <span class="setting-desc">Get notified when a student enrolls</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Review Notifications</span>
+                                    <span class="setting-desc">Get notified for new reviews</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Payment Alerts</span>
+                                    <span class="setting-desc">Get notified for payouts</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Payout Settings</h3>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Bank Account</span>
+                                    <span class="setting-desc">**** **** **** 4521</span>
+                                </div>
+                                <button class="btn btn-outline btn-small" onclick="window.location.href='404.html'">Edit</button>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <span class="setting-name">Payout Schedule</span>
+                                    <span class="setting-desc">Monthly (1st of every month)</span>
+                                </div>
+                                <button class="btn btn-outline btn-small" onclick="window.location.href='404.html'">Edit</button>
+                            </div>
+                        </div>
+                        <div class="settings-card danger-zone">
+                            <h3 class="settings-card-title">Danger Zone</h3>
+                            <div class="danger-item">
+                                <div class="danger-info">
+                                    <span class="danger-name">Delete Account</span>
+                                    <span class="danger-desc">Permanently delete your instructor account</span>
+                                </div>
+                                <button class="btn btn-danger btn-small" onclick="if(confirm('Are you sure? This cannot be undone.')) { sessionStorage.removeItem('stacklyUserEmail'); sessionStorage.removeItem('stacklyUserRole'); window.location.href='index.html'; }">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

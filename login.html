@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Stackly | Student Portal</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body class="auth-page">
     <!-- Stage Loader -->
@@ -28,7 +29,6 @@
             <div class="auth-visual-content">
                 <a href="index.html" class="auth-logo-link">
                     <img src="assets/logo.webp" alt="Stackly" class="auth-logo" width="60">
-                    
                 </a>
                 <h2 class="auth-visual-title">Welcome Back, Scholar!</h2>
                 <p class="auth-visual-text">Continue your learning journey with access to 200+ expert-curated courses, live mentorship, and a global community of 50,000+ learners.</p>
@@ -67,8 +67,29 @@
                 </div>
 
                 <form class="auth-form" id="login-form" novalidate>
+                    <!-- Role Selection -->
                     <div class="form-group">
-                        <label for="login-email" class="form-label">Email Address</label>
+                        <label class="form-label">Sign in as *</label>
+                        <div class="role-selector">
+                            <label class="role-option">
+                                <input type="radio" name="role" value="student" class="role-input" checked>
+                                <span class="role-card">
+                                    <span class="role-icon">🎓</span>
+                                    <span class="role-name">Student</span>
+                                </span>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="instructor" class="role-input">
+                                <span class="role-card">
+                                    <span class="role-icon">👨‍🏫</span>
+                                    <span class="role-name">Instructor</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">Email Address *</label>
                         <div class="input-wrap">
                             <span class="input-icon">✉️</span>
                             <input type="email" id="login-email" name="email" class="form-input" placeholder="Enter your email address" required>
@@ -77,7 +98,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="login-password" class="form-label">Password</label>
+                        <label for="login-password" class="form-label">Password *</label>
                         <div class="input-wrap">
                             <span class="input-icon">🔒</span>
                             <input type="password" id="login-password" name="password" class="form-input" placeholder="Enter your password" required minlength="6">
