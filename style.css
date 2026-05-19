@@ -8282,7 +8282,7 @@ body.dashboard-page {
 }
 
 .input-wrap.mobile-input-wrap .mobile-prefix {
-    left: 1rem !important;
+    left: 2.8rem !important;
     position: absolute !important;
     background: transparent !important;
     border: none !important;
@@ -8291,7 +8291,7 @@ body.dashboard-page {
     padding: 0 !important;
 }
 .input-wrap.mobile-input-wrap .form-input.mobile-input {
-    padding-left: 3rem !important;
+    padding-left: 5.2rem !important;
     border-radius: var(--radius-md) !important;
     height: auto !important;
 }

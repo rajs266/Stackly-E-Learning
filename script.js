@@ -604,8 +604,18 @@
 
                 if (isValid) {
                     sessionStorage.setItem('stacklyUserEmail', email.value);
-                    alert('Account created successfully! Welcome to Stackly.');
-                    window.location.href = 'dashboard.html';
+                    const successModal = document.getElementById('success-modal');
+                    if (successModal) {
+                        successModal.style.display = 'flex';
+                        setTimeout(function () {
+                            successModal.classList.add('active');
+                        }, 10);
+                        setTimeout(function () {
+                            window.location.href = 'login.html';
+                        }, 3000);
+                    } else {
+                        window.location.href = 'login.html';
+                    }
                 }
             });
 
