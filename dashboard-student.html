@@ -8,7 +8,7 @@
 
 </head>
 <body class="dashboard-page">
-    <!-- Stage Loader -->
+    
     <div id="stage-loader" class="stage-loader">
         <div class="loader-content">
             <img src="assets/logo.webp" alt="Stackly Logo" class="loader-logo" width="100">
@@ -22,9 +22,9 @@
         </div>
     </div>
 
-    <!-- Dashboard Layout -->
+    
     <div class="dashboard-layout">
-        <!-- Sidebar -->
+        
         <aside class="dashboard-sidebar" id="dashboard-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo-link">
@@ -110,18 +110,21 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+        
         <main class="dashboard-main">
-            <!-- Top Header -->
+            
             <header class="dashboard-header">
                 <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+                <a href="index.html" class="sidebar-logo-link">
+                <img src="assets/logo.webp" alt="Stackly" class="dashboard-header-logo-mobile">
+                </a>
 
                 <div class="dashboard-welcome" id="dashboard-welcome">
-                    <h1 class="welcome-title">Welcome Back, Scholar!</h1>
+                    <h1 class="welcome-title">Welcome, Scholar!</h1>
                     <p class="welcome-email" id="welcome-email">scholar@stackly.com</p>
                 </div>
 
@@ -134,21 +137,40 @@
                         <span class="action-icon">💬</span>
                         <span class="action-badge">5</span>
                     </button>
-                    <div class="user-dropdown">
-                        <img src="assets/img_28.webp" alt="User" class="user-dropdown-avatar" loading="lazy">
-                        <div class="dropdown-menu user-menu">
-                            <a href="#profile" onclick="document.querySelector('.sidebar-link[data-panel=\'profile\']').click(); return false;"> 👤 My Account</a>
-                            <a href="#settings" onclick="document.querySelector('.sidebar-link[data-panel=\'settings\']').click(); return false;"> ⚙️ Settings</a>
+                    <div class="user-dropdown" id="user-dropdown-wrap">
+                        <div class="dropdown-menu user-menu" id="user-dropdown-menu">
+                            <a href="#profile" onclick="document.querySelector('.sidebar-link[data-panel=\'profile\']').click(); closeUserDropdown(); return false;"> 👤 My Account</a>
+                            <a href="#settings" onclick="document.querySelector('.sidebar-link[data-panel=\'settings\']').click(); closeUserDropdown(); return false;"> ⚙️ Settings</a>
                             <a href="index.html" id="header-logout"> 🚪 Logout</a>
                         </div>
                     </div>
+                    <script>
+                    (function(){
+                        function closeUserDropdown(){
+                            var m=document.getElementById('user-dropdown-menu');
+                            if(m){m.style.opacity='0';m.style.visibility='hidden';m.style.transform='translateY(-10px)';}
+                        }
+                        window.closeUserDropdown=closeUserDropdown;
+                        document.addEventListener('DOMContentLoaded',function(){
+                            var trigger=document.getElementById('user-dropdown-trigger');
+                            var menu=document.getElementById('user-dropdown-menu');
+                            var wrap=document.getElementById('user-dropdown-wrap');
+                            if(!trigger||!menu) return;
+                            var open=false;
+                            function openMenu(){menu.style.opacity='1';menu.style.visibility='visible';menu.style.transform='translateY(0)';open=true;}
+                            function closeMenu(){menu.style.opacity='0';menu.style.visibility='hidden';menu.style.transform='translateY(-10px)';open=false;}
+                            trigger.addEventListener('click',function(e){e.stopPropagation();open?closeMenu():openMenu();});
+                            document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeMenu();});
+                        });
+                    })();
+                    </script>
                 </div>
             </header>
 
-            <!-- Dashboard Panels -->
+            
             <div class="dashboard-content" id="dashboard-content">
 
-                <!-- Overview Panel -->
+                
                 <div class="dashboard-panel active" id="panel-overview">
                     <div class="panel-header">
                         <h2 class="panel-title">Dashboard Overview</h2>
@@ -157,7 +179,7 @@
 
 
 
-                    <!-- Stats Grid -->
+                    
                     <div class="stats-grid">
                         <div class="stat-card section-reveal" data-tilt>
                             <div class="stat-icon">📚</div>
@@ -193,9 +215,9 @@
                         </div>
                     </div>
 
-                    <!-- Two Column Layout -->
+                    
                     <div class="dashboard-grid-2">
-                        <!-- Continue Learning -->
+                        
                         <div class="dashboard-card section-reveal" data-tilt>
                             <div class="card-header">
                                 <h3 class="card-title">Continue Learning</h3>
@@ -244,7 +266,7 @@
                             </div>
                         </div>
 
-                        <!-- Recent Achievements -->
+                        
                         <div class="dashboard-card section-reveal" data-tilt>
                             <div class="card-header">
                                 <h3 class="card-title">Recent Achievements</h3>
@@ -279,9 +301,9 @@
                         </div>
                     </div>
 
-                    <!-- Live Sessions & Community -->
+                    
                     <div class="dashboard-grid-2" style="margin-top: 2rem;">
-                        <!-- Live Mentorship Sessions -->
+                        
                         <div class="dashboard-card section-reveal" data-tilt>
                             <div class="card-header">
                                 <h3 class="card-title">Live Mentorship Sessions</h3>
@@ -305,7 +327,7 @@
                             </div>
                         </div>
 
-                        <!-- Community Discussions -->
+                        
                         <div class="dashboard-card section-reveal" data-tilt>
                             <div class="card-header">
                                 <h3 class="card-title">Community Discussions</h3>
@@ -330,7 +352,7 @@
                         </div>
                     </div>
 
-                    <!-- Upcoming Deadlines -->
+                    
                     <div class="dashboard-card full-width section-reveal" data-tilt>
                         <div class="card-header">
                             <h3 class="card-title">Upcoming Deadlines</h3>
@@ -373,7 +395,7 @@
                         </div>
                     </div>
 
-                    <!-- Weekly Learning Activity -->
+                    
                     <div class="dashboard-card full-width section-reveal" data-tilt>
                         <div class="card-header">
                             <h3 class="card-title">Weekly Learning Activity</h3>
@@ -428,7 +450,7 @@
                         </div>
                     </div>
 
-                    <!-- Recommended Courses -->
+                    
                     <div class="dashboard-card full-width section-reveal" data-tilt>
                         <div class="card-header">
                             <h3 class="card-title">Recommended For You</h3>
@@ -462,7 +484,7 @@
                                 <a href="404.html" class="btn btn-primary btn-small">Enroll Now</a>
                             </div>
                             <div class="rec-course-card">
-                                <img src="assets/img_34.webp" alt="Course" class="rec-course-img" loading="lazy">
+                                <img src="assets/img_34.webp" alt="Course" class="rec-course-img" loading="lazy" style="height:80px;width:120px;object-fit:cover;flex-shrink:0;">
                                 <div class="rec-course-info">
                                     <span class="rec-course-category">Design</span>
                                     <h4 class="rec-course-title">Figma Mastery</h4>
@@ -477,26 +499,77 @@
                         </div>
                     </div>
 
-                    <!-- Learning Streak -->
+                    
                     <div class="dashboard-card full-width section-reveal" data-tilt>
                         <div class="card-header">
-                            <h3 class="card-title">Learning Streak</h3>
-                            <span class="card-link">🔥 7 Days</span>
+                            <h3 class="card-title">🔥 Learning Streak</h3>
+                            <span class="card-link" style="background:linear-gradient(135deg,#ff6b35,#f7c948);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;font-size:1rem;">7 Day Streak!</span>
                         </div>
-                        <div class="streak-calendar">
-                            <div class="streak-day active">M</div>
-                            <div class="streak-day active">T</div>
-                            <div class="streak-day active">W</div>
-                            <div class="streak-day active">T</div>
-                            <div class="streak-day active">F</div>
-                            <div class="streak-day active">S</div>
-                            <div class="streak-day today">S</div>
+                        
+                        <div style="display:flex;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:80px;background:linear-gradient(135deg,rgba(255,107,53,0.15),rgba(247,201,72,0.1));border:1px solid rgba(255,107,53,0.3);border-radius:12px;padding:0.75rem;text-align:center;">
+                                <div style="font-size:1.5rem;font-weight:800;color:#ff6b35;">7</div>
+                                <div style="font-size:0.7rem;color:var(--text-muted);margin-top:2px;">Current Streak</div>
+                            </div>
+                            <div style="flex:1;min-width:80px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.75rem;text-align:center;">
+                                <div style="font-size:1.5rem;font-weight:800;color:var(--cyan);">21</div>
+                                <div style="font-size:0.7rem;color:var(--text-muted);margin-top:2px;">Best Streak</div>
+                            </div>
+                            <div style="flex:1;min-width:80px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.75rem;text-align:center;">
+                                <div style="font-size:1.5rem;font-weight:800;color:#a78bfa;">48</div>
+                                <div style="font-size:0.7rem;color:var(--text-muted);margin-top:2px;">Total Days</div>
+                            </div>
+                            <div style="flex:1;min-width:80px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.75rem;text-align:center;">
+                                <div style="font-size:1.5rem;font-weight:800;color:#34d399;">3</div>
+                                <div style="font-size:0.7rem;color:var(--text-muted);margin-top:2px;">Badges Earned</div>
+                            </div>
                         </div>
-                        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: var(--space-md);">You're on a 7-day streak! Keep it up to earn the 30-day streak badge.</p>
+                        
+                        <div style="display:flex;gap:0.5rem;flex-wrap:nowrap;justify-content:space-between;margin-bottom:0.75rem;">
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7c948);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 10px rgba(255,107,53,0.5);">M</div>
+                                <div style="font-size:0.6rem;color:var(--text-muted);">13</div>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7c948);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 10px rgba(255,107,53,0.5);">T</div>
+                                <div style="font-size:0.6rem;color:var(--text-muted);">14</div>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7c948);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 10px rgba(255,107,53,0.5);">W</div>
+                                <div style="font-size:0.6rem;color:var(--text-muted);">15</div>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7c948);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 10px rgba(255,107,53,0.5);">T</div>
+                                <div style="font-size:0.6rem;color:var(--text-muted);">16</div>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7c948);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 10px rgba(255,107,53,0.5);">F</div>
+                                <div style="font-size:0.6rem;color:var(--text-muted);">17</div>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7c948);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 10px rgba(255,107,53,0.5);">S</div>
+                                <div style="font-size:0.6rem;color:var(--text-muted);">18</div>
+                            </div>
+                            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00ffcc,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;box-shadow:0 0 12px rgba(0,255,204,0.6);border:2px solid rgba(255,255,255,0.3);">S</div>
+                                <div style="font-size:0.6rem;color:var(--cyan);font-weight:600;">Today</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top:0.5rem;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:0.75rem;color:var(--text-muted);">Progress to 30-day badge</span>
+                                <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;">7 / 30</span>
+                            </div>
+                            <div style="height:6px;background:rgba(255,255,255,0.07);border-radius:999px;overflow:hidden;">
+                                <div style="height:100%;width:23%;background:linear-gradient(90deg,#ff6b35,#f7c948);border-radius:999px;transition:width 1s ease;"></div>
+                            </div>
+                            <p style="color:var(--text-muted);font-size:0.75rem;margin-top:0.5rem;">🏅 23 more days to earn the <strong style="color:#f7c948;">Flame Master</strong> badge!</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- My Courses Panel -->
+                
                 <div class="dashboard-panel" id="panel-courses">
                     <div class="panel-header">
                         <h2 class="panel-title">My Courses</h2>
@@ -598,7 +671,7 @@
                     </div>
                 </div>
 
-                <!-- Certificates Panel -->
+                
                 <div class="dashboard-panel" id="panel-certificates">
                     <div class="panel-header">
                         <h2 class="panel-title">My Certificates</h2>
@@ -643,7 +716,7 @@
                     </div>
                 </div>
 
-                <!-- Analytics Panel -->
+                
                 <div class="dashboard-panel" id="panel-analytics">
                     <div class="panel-header">
                         <h2 class="panel-title">Learning Analytics</h2>
@@ -702,7 +775,7 @@
                     </div>
                 </div>
 
-                <!-- Profile Panel -->
+                
                 <div class="dashboard-panel" id="panel-profile">
                     <div class="panel-header">
                         <h2 class="panel-title">My Profile</h2>
@@ -712,7 +785,7 @@
                         <div class="profile-header">
                             <div class="profile-avatar-wrap">
                                 <img src="assets/img_36.webp" alt="Profile" class="profile-avatar-large" loading="lazy">
-                                <button class="avatar-edit">📷</button>
+                                <button class="avatar-edit" onclick="window.location.href='404.html'">📷</button>
                             </div>
                             <div class="profile-header-info">
                                 <h3 class="profile-name" id="profile-name">Scholar</h3>
@@ -755,20 +828,13 @@
                                     <label class="form-label">Location</label>
                                     <input type="text" class="form-input" value="Salem, Tamil Nadu">
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <div class="input-wrap mobile-input-wrap">
-                                        <span class="mobile-prefix">+91</span>
-                                        <input type="tel" class="form-input mobile-input" value="9876543210" maxlength="10">
-                                    </div>
-                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
                 </div>
 
-                <!-- Settings Panel -->
+                
                 <div class="dashboard-panel" id="panel-settings">
                     <div class="panel-header">
                         <h2 class="panel-title">Settings</h2>

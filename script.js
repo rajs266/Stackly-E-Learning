@@ -1,21 +1,13 @@
-/* ============================================
-   STACKLY E-LEARNING PLATFORM
-   Unified Native JavaScript Logic
-   ============================================ */
-
 (function () {
     'use strict';
 
-    /* ============================================
-       SECTION 1: STAGE LOADER
-       ============================================ */
 
     const Loader = {
         init: function () {
             const loader = document.getElementById('stage-loader');
             if (!loader) return;
 
-            // Hard 2-second timeout cap as per requirements
+            
             const loaderTimeout = 200;
 
             window.addEventListener('load', function () {
@@ -27,7 +19,7 @@
                 }, loaderTimeout);
             });
 
-            // Fallback: always hide loader even if load event fails
+            
             setTimeout(function () {
                 if (loader && !loader.classList.contains('loader-hidden')) {
                     loader.classList.add('loader-hidden');
@@ -39,9 +31,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 2: MOBILE HAMBURGER MENU
-       ============================================ */
 
     const MobileMenu = {
         init: function () {
@@ -66,19 +55,19 @@
             hamburgerBtn.addEventListener('click', openMenu);
             if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-            // Close on overlay click (outside menu content)
+            
             mobileOverlay.addEventListener('click', function (e) {
                 if (e.target === mobileOverlay) closeMenu();
             });
 
-            // Close on Escape key
+            
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
                     closeMenu();
                 }
             });
 
-            // Close menu when clicking any nav link
+            
             const mobileLinks = mobileOverlay.querySelectorAll('a');
             mobileLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
@@ -88,9 +77,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 3: NAVBAR DROPDOWN MENUS
-       ============================================ */
 
     const DropdownMenus = {
         init: function () {
@@ -102,29 +88,12 @@
 
                 if (!link || !menu) return;
 
-                // Hover for desktop
-                parent.addEventListener('mouseenter', function () {
-                    if (window.innerWidth >= 1024) {
-                        menu.style.opacity = '1';
-                        menu.style.visibility = 'visible';
-                        menu.style.transform = 'translateY(0)';
-                    }
-                });
-
-                parent.addEventListener('mouseleave', function () {
-                    if (window.innerWidth >= 1024) {
-                        menu.style.opacity = '0';
-                        menu.style.visibility = 'hidden';
-                        menu.style.transform = 'translateY(-10px)';
-                    }
-                });
-
-                // Click for touch devices
+                
                 link.addEventListener('click', function (e) {
                     if (window.innerWidth < 1024) {
                         e.preventDefault();
                         const isOpen = menu.style.display === 'block';
-                        // Close all other dropdowns
+                        
                         document.querySelectorAll('.dropdown-menu').forEach(function (m) {
                             m.style.display = 'none';
                         });
@@ -133,7 +102,7 @@
                 });
             });
 
-            // Close dropdowns when clicking outside
+            
             document.addEventListener('click', function (e) {
                 if (!e.target.closest('.has-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(function (m) {
@@ -146,10 +115,7 @@
         }
     };
 
-    /* ============================================
-       SECTION 4: STICKY NAVBAR
-       ============================================ */
-
+ 
     const StickyNav = {
         init: function () {
             const header = document.querySelector('.main-header');
@@ -171,14 +137,10 @@
         }
     };
 
-    /* ============================================
-       SECTION 5: SCROLL REVEAL ANIMATIONS
-       (Intersection Observer API)
-       ============================================ */
 
     const ScrollReveal = {
         init: function () {
-            // Dynamically add reveal class to major elements for global animation
+            
             document.querySelectorAll('section, .feature-card, .course-card, .testimonial-card, .footer-col').forEach(el => {
                 if (!el.classList.contains('section-reveal')) {
                     el.classList.add('section-reveal');
@@ -188,7 +150,7 @@
             const revealElements = document.querySelectorAll('.section-reveal');
 
             if (!('IntersectionObserver' in window)) {
-                // Fallback for older browsers
+                
                 revealElements.forEach(function (el) {
                     el.classList.add('revealed');
                 });
@@ -213,9 +175,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 6: HERO PARALLAX & 3D TILT EFFECTS
-       ============================================ */
 
     const HeroEffects = {
         init: function () {
@@ -245,7 +204,7 @@
             const tiltElement = document.getElementById('hero-tilt');
             if (!tiltElement) return;
 
-            // Skip on touch devices
+            
             if (window.matchMedia('(pointer: coarse)').matches) return;
 
             var heroSection = document.querySelector('.hero-section');
@@ -273,7 +232,7 @@
             const particlesContainer = document.getElementById('hero-particles');
             if (!particlesContainer) return;
 
-            // Create SVG particles
+            
             const particleCount = 25;
 
             for (let i = 0; i < particleCount; i++) {
@@ -289,10 +248,6 @@
             }
         }
     };
-
-    /* ============================================
-       SECTION 7: CARD TILT EFFECTS (3D)
-       ============================================ */
 
     const CardTilt = {
         init: function () {
@@ -321,9 +276,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 8: FORM VALIDATION
-       ============================================ */
 
     const FormValidation = {
         init: function () {
@@ -375,7 +327,7 @@
 
                 const mobile = document.getElementById('contact-mobile');
 
-                // Name validation
+                
                 if (!name || !name.value.trim()) {
                     if (name) FormValidation.showError(name, 'error-name');
                     isValid = false;
@@ -386,7 +338,7 @@
                     if (name) FormValidation.hideError(name, 'error-name');
                 }
 
-                // Mobile validation
+                
                 if (mobile && mobile.value.trim() !== '') {
                     if (!/^\d{10}$/.test(mobile.value)) {
                         FormValidation.showError(mobile, 'error-mobile', 'Please enter a valid 10-digit mobile number');
@@ -396,7 +348,7 @@
                     }
                 }
 
-                // Email validation
+                
                 if (!email || !email.value.trim()) {
                     if (email) FormValidation.showError(email, 'error-email');
                     isValid = false;
@@ -407,7 +359,7 @@
                     if (email) FormValidation.hideError(email, 'error-email');
                 }
 
-                // Subject validation
+                
                 if (!subject || !subject.value) {
                     if (subject) FormValidation.showError(subject, 'error-subject');
                     isValid = false;
@@ -415,7 +367,7 @@
                     if (subject) FormValidation.hideError(subject, 'error-subject');
                 }
 
-                // Message validation
+                
                 if (!message || !message.value.trim()) {
                     if (message) FormValidation.showError(message, 'error-message');
                     isValid = false;
@@ -424,13 +376,13 @@
                 }
 
                 if (isValid) {
-                    // Show success message
+                    
                     alert('Thank you for your message! We will get back to you within 24 hours.');
                     form.reset();
                 }
             });
 
-            // Real-time validation on input
+            
             const inputs = form.querySelectorAll('input, select, textarea');
             inputs.forEach(function (input) {
                 input.addEventListener('input', function () {
@@ -452,7 +404,7 @@
 
                 let isValid = true;
 
-                // Email validation
+                
                 if (!email || !email.value.trim()) {
                     if (email) FormValidation.showError(email, 'error-login-email');
                     isValid = false;
@@ -463,7 +415,7 @@
                     if (email) FormValidation.hideError(email, 'error-login-email');
                 }
 
-                // Password validation
+                
                 if (!password || !password.value.trim()) {
                     if (password) FormValidation.showError(password, 'error-login-password');
                     isValid = false;
@@ -478,7 +430,7 @@
                     const roleInput = document.querySelector('input[name="role"]:checked');
                     const userRole = roleInput ? roleInput.value : 'student';
                     
-                    // Store email and role in sessionStorage and redirect
+                    
                     sessionStorage.setItem('stacklyUserEmail', email.value);
                     sessionStorage.setItem('stacklyUserRole', userRole);
                     
@@ -490,7 +442,7 @@
                 }
             });
 
-            // Real-time validation
+            
             const inputs = form.querySelectorAll('input');
             inputs.forEach(function (input) {
                 input.addEventListener('input', function () {
@@ -499,7 +451,7 @@
                 });
             });
 
-            // Password toggle
+            
             const toggleBtn = document.getElementById('password-toggle');
             if (toggleBtn) {
                 toggleBtn.addEventListener('click', function () {
@@ -517,7 +469,7 @@
             const form = document.getElementById('signup-form');
             if (!form) return;
 
-            // Password strength meter
+            
             const passwordInput = document.getElementById('signup-password');
             const strengthBar = document.querySelector('.strength-fill');
             const strengthText = document.querySelector('.strength-text');
@@ -550,7 +502,7 @@
                 });
             }
 
-            // Password toggle
+            
             const toggleBtn = document.getElementById('signup-password-toggle');
             if (toggleBtn) {
                 toggleBtn.addEventListener('click', function () {
@@ -576,7 +528,7 @@
 
                 const mobile = document.getElementById('signup-mobile');
 
-                // First name
+                
                 if (!firstname || !firstname.value.trim()) {
                     if (firstname) FormValidation.showError(firstname, 'error-signup-firstname');
                     isValid = false;
@@ -587,7 +539,7 @@
                     if (firstname) FormValidation.hideError(firstname, 'error-signup-firstname');
                 }
 
-                // Last name
+                
                 if (!lastname || !lastname.value.trim()) {
                     if (lastname) FormValidation.showError(lastname, 'error-signup-lastname');
                     isValid = false;
@@ -598,7 +550,7 @@
                     if (lastname) FormValidation.hideError(lastname, 'error-signup-lastname');
                 }
 
-                // Mobile
+                
                 if (!mobile || !mobile.value.trim()) {
                     if (mobile) FormValidation.showError(mobile, 'error-signup-mobile');
                     isValid = false;
@@ -609,7 +561,7 @@
                     if (mobile) FormValidation.hideError(mobile, 'error-signup-mobile');
                 }
 
-                // Email
+                
                 if (!email || !email.value.trim()) {
                     if (email) FormValidation.showError(email, 'error-signup-email');
                     isValid = false;
@@ -620,7 +572,7 @@
                     if (email) FormValidation.hideError(email, 'error-signup-email');
                 }
 
-                // Password
+                
                 if (!password || !password.value.trim()) {
                     if (password) FormValidation.showError(password, 'error-signup-password');
                     isValid = false;
@@ -631,7 +583,7 @@
                     if (password) FormValidation.hideError(password, 'error-signup-password');
                 }
 
-                // Confirm password
+                
                 if (!confirm || !confirm.value.trim()) {
                     if (confirm) FormValidation.showError(confirm, 'error-signup-confirm');
                     isValid = false;
@@ -642,7 +594,7 @@
                     if (confirm) FormValidation.hideError(confirm, 'error-signup-confirm');
                 }
 
-                // Terms
+                
                 if (terms && !terms.checked) {
                     FormValidation.showError(terms, 'error-signup-terms', 'You must agree to the terms');
                     isValid = false;
@@ -657,7 +609,7 @@
                 }
             });
 
-            // Real-time validation
+            
             const inputs = form.querySelectorAll('input');
             inputs.forEach(function (input) {
                 input.addEventListener('input', function () {
@@ -668,9 +620,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 9: DASHBOARD LOGIC
-       ============================================ */
 
     const Dashboard = {
         init: function () {
@@ -700,7 +649,7 @@
                         const email = document.getElementById(f.prefix === 'profile' ? 'profile-email-input' : f.prefix + '-email');
                         const mobile = document.getElementById(f.prefix + '-mobile');
 
-                        // First name
+                        
                         if (!fname || !fname.value.trim()) {
                             if (fname) FormValidation.showError(fname, 'error-' + f.prefix + '-fname');
                             isValid = false;
@@ -711,7 +660,7 @@
                             if (fname) FormValidation.hideError(fname, 'error-' + f.prefix + '-fname');
                         }
 
-                        // Last name
+                        
                         if (!lname || !lname.value.trim()) {
                             if (lname) FormValidation.showError(lname, 'error-' + f.prefix + '-lname');
                             isValid = false;
@@ -722,7 +671,7 @@
                             if (lname) FormValidation.hideError(lname, 'error-' + f.prefix + '-lname');
                         }
                         
-                        // Email
+                        
                         const emailErrorId = f.prefix === 'profile' ? 'error-profile-email' : 'error-instructor-email';
                         if (!email || !email.value.trim()) {
                             if (email) FormValidation.showError(email, emailErrorId);
@@ -734,7 +683,7 @@
                             if (email) FormValidation.hideError(email, emailErrorId);
                         }
 
-                        // Mobile
+                        
                         if (!mobile || !mobile.value.trim()) {
                             if (mobile) FormValidation.showError(mobile, 'error-' + f.prefix + '-mobile');
                             isValid = false;
@@ -780,20 +729,20 @@
                 if (profileEmail) profileEmail.textContent = userEmail;
                 if (profileEmailInput) profileEmailInput.value = userEmail;
 
-                // Extract name from email for display
+                
                 const nameFromEmail = userEmail.split('@')[0];
                 const formattedName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
 
                 if (profileName) profileName.textContent = formattedName;
                 if (userName) userName.textContent = formattedName;
 
-                // Update welcome title
+                
                 const welcomeTitle = document.querySelector('.welcome-title');
                 if (welcomeTitle) {
-                    welcomeTitle.textContent = 'Welcome Back, ' + formattedName + '!';
+                    welcomeTitle.textContent = 'Welcome, ' + formattedName + '!';
                 }
             } else {
-                // Not logged in - redirect to login
+                
                 if (document.querySelector('.dashboard-page')) {
                     window.location.href = 'login.html';
                 }
@@ -804,7 +753,7 @@
             const sidebar = document.getElementById('dashboard-sidebar');
             if (!sidebar) return;
 
-            // Mark active sidebar link based on URL hash or default
+            
             const hash = window.location.hash || '#overview';
             this.setActiveSidebarLink(hash.replace('#', ''));
         },
@@ -831,11 +780,11 @@
 
                     const targetPanel = this.getAttribute('data-panel');
 
-                    // Update active sidebar link
+                    
                     sidebarLinks.forEach(function (l) { l.classList.remove('active'); });
                     this.classList.add('active');
 
-                    // Switch panels with animation
+                    
                     panels.forEach(function (panel) {
                         if (panel.id === 'panel-' + targetPanel) {
                             panel.classList.add('active');
@@ -850,10 +799,10 @@
                         }
                     });
 
-                    // Update URL hash without scrolling
+                    
                     history.pushState(null, null, '#' + targetPanel);
 
-                    // On mobile, close sidebar after selection
+                    
                     if (window.innerWidth < 1024) {
                         const sidebar = document.getElementById('dashboard-sidebar');
                         const sidebarOverlay = document.querySelector('.sidebar-overlay');
@@ -864,7 +813,7 @@
                 });
             });
 
-            // Handle browser back/forward
+            
             window.addEventListener('popstate', function () {
                 const hash = window.location.hash.replace('#', '') || 'overview';
                 Dashboard.setActiveSidebarLink(hash);
@@ -880,7 +829,7 @@
             const sidebar = document.getElementById('dashboard-sidebar');
             const closeBtn = document.getElementById('sidebar-close');
 
-            // Create overlay backdrop
+            
             let overlay = document.querySelector('.sidebar-overlay');
             if (!overlay) {
                 overlay = document.createElement('div');
@@ -918,7 +867,7 @@
 
             overlay.addEventListener('click', closeSidebar);
 
-            // Close sidebar on link click (mobile)
+            
             if (sidebar) {
                 sidebar.querySelectorAll('.sidebar-link').forEach(function(link) {
                     link.addEventListener('click', function() {
@@ -927,7 +876,7 @@
                 });
             }
 
-            // Close on resize to desktop
+            
             window.addEventListener('resize', function() {
                 if (window.innerWidth >= 1024) closeSidebar();
             });
@@ -958,10 +907,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 10: COURSE FILTERING
-       ============================================ */
-
     const CourseFilter = {
         init: function () {
             this.initCategoryFilter();
@@ -978,7 +923,7 @@
 
             categoryCards.forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    // Update active state
+                    
                     categoryCards.forEach(function (b) { b.classList.remove('active'); });
                     this.classList.add('active');
 
@@ -1073,7 +1018,7 @@
                     }
                 });
 
-                // Update period text
+                
                 const periods = document.querySelectorAll('.period');
                 periods.forEach(function (p) {
                     p.textContent = isYearly ? '/year' : '/month';
@@ -1082,9 +1027,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 11: FAQ ACCORDION
-       ============================================ */
 
     const FAQAccordion = {
         init: function () {
@@ -1094,14 +1036,14 @@
                 q.addEventListener('click', function () {
                     const isOpen = this.getAttribute('aria-expanded') === 'true';
 
-                    // Close all others
+                    
                     questions.forEach(function (other) {
                         other.setAttribute('aria-expanded', 'false');
                         const answer = other.nextElementSibling;
                         if (answer) answer.style.maxHeight = null;
                     });
 
-                    // Toggle current
+                    
                     this.setAttribute('aria-expanded', !isOpen);
                     const answer = this.nextElementSibling;
                     if (answer && !isOpen) {
@@ -1112,9 +1054,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 12: FALLBACK ROUTING (404)
-       ============================================ */
 
     const FallbackRouting = {
         init: function () {
@@ -1124,8 +1063,8 @@
 
                 const href = target.getAttribute('href');
 
-                // Skip buttons that have a data-panel (sidebar nav), event handlers,
-                // onclick attributes, or are inside a dashboard/sidebar context
+                
+                
                 if (target.tagName === 'BUTTON') {
                     if (
                         target.getAttribute('data-panel') ||
@@ -1159,9 +1098,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 13: SMOOTH SCROLL
-       ============================================ */
 
     const SmoothScroll = {
         init: function () {
@@ -1183,9 +1119,6 @@
         }
     };
 
-    /* ============================================
-       SECTION 14: REDUCED MOTION RESPECT
-       ============================================ */
 
     const Accessibility = {
         init: function () {
@@ -1204,9 +1137,6 @@
         }
     };
 
-    /* ============================================
-       INITIALIZATION
-       ============================================ */
 
     document.addEventListener('DOMContentLoaded', function () {
         Loader.init();
