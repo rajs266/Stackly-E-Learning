@@ -104,7 +104,7 @@
 
             
             document.addEventListener('click', function (e) {
-                if (!e.target.closest('.has-dropdown')) {
+                if (!(e.target instanceof Element) || !e.target.closest('.has-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(function (m) {
                         if (window.innerWidth < 1024) {
                             m.style.display = 'none';
@@ -1068,7 +1068,7 @@
     const FallbackRouting = {
         init: function () {
             document.addEventListener('click', function (e) {
-                const target = e.target.closest('a, button');
+                const target = e.target instanceof Element ? e.target.closest('a, button') : null;
                 if (!target) return;
 
                 const href = target.getAttribute('href');
