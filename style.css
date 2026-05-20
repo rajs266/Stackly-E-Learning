@@ -845,7 +845,7 @@ select {
 
 .hero-title {
     font-size: clamp(1.9rem, 4.5vw, 3rem);
-    font-weight: 700;
+    font-weight: 0;
     line-height: 1.1;
     margin-bottom: var(--space-md);
 }
@@ -2812,18 +2812,18 @@ select {
 }
 
 .contact-main-section {
-    padding: var(--space-xl) 0 var(--space-3xl);
+    padding: var(--space-xl) 0 var(--space-xl);
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-3xl);
+    gap: var(--space-xl);
 }
 
 .form-header,
 .info-header {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
 }
 
 .form-title,
@@ -2847,7 +2847,7 @@ select {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);
 }
 
 .form-row {
@@ -2989,16 +2989,16 @@ select {
 .info-cards {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-sm);
 }
 
 .info-card {
     background: var(--gradient-card);
     border: 1px solid rgba(0, 255, 204, 0.05);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    padding: var(--space-md);
     display: flex;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     transition: all var(--transition-base);
 }
 
@@ -3230,7 +3230,8 @@ select {
 @media (min-width:1024px) {
     .contact-grid {
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-3xl);
+        gap: var(--space-2xl);
+        align-items: start;
     }
 
     .form-row {
@@ -7800,7 +7801,7 @@ body.dashboard-page {
 @media (min-width: 1024px) {
     .contact-grid {
         grid-template-columns: 1fr 1fr !important;
-        align-items: stretch !important;
+        align-items: start !important;
     }
 }
 .contact-info-wrap,
@@ -9102,37 +9103,33 @@ img, video, iframe {
 
     
     .contact-grid {
-        align-items: stretch;
+        align-items: start;
     }
 
     .contact-form-wrap {
         display: flex;
         flex-direction: column;
-        height: 100%;
     }
 
     .contact-form-wrap .contact-form {
         flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: var(--space-md);
     }
 
     .contact-info-wrap {
         display: flex;
         flex-direction: column;
-        height: 100%;
     }
 
     .info-cards {
-        flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: var(--space-sm);
     }
 
     .info-card {
-        flex: 1;
         display: flex;
         align-items: center;
     }
